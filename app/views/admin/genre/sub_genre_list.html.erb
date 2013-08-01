@@ -1,0 +1,44 @@
+<center><font size="5" color="blue">小分类列表</font></center>
+<br/><br/>
+<% form_tag "/admin/genre/delete_all_sub_genre" do%>
+<table border="1" cellspacing="0" width="80%" align="center">
+	<tr bgcolor="#BBFFFF" align="center">
+		<td></td>
+		<td>ID</td>
+		<td>名称</td>
+		<td>大分类</td>
+		<td></td>
+	</tr>
+	<% if @sub_genres.present?%>
+	<% @sub_genres.each do |sub_genre|%>
+	<tr align="center" onmouseout="this.style.backgroundColor=''"; onmouseover="this.style.backgroundColor='#FFcccc'">
+		<td><%= check_box_tag "sub_genre_id[]",sub_genre.id%></td>
+		<td><%= sub_genre.id%></td>
+		<td><%= sub_genre.sub_name%></td>
+		<td><%= sub_genre.genre.name rescue '--'%></td>
+		<td>
+			<%= link_to "编辑", :action => "sub_genre_edit", :id => sub_genre.id%>&nbsp;&nbsp;
+			<%= link_to "删除", {:action => "sub_genre_delete", :id => sub_genre.id}, :confirm => "Are you sure ?"%>
+		</td>
+	</tr>
+	<%end%>
+	<% else%>
+	<tr>
+		<td colspan="4" align="center">no sub_genre!</td>
+	</tr>
+	<%end%>
+</table>
+<table width="85%">
+	<tr>
+		<td width="50%" align="center"><%= submit_tag "批量删除", :confirm => "Are you sure ?"%></td>
+		<td width="50%">
+			<table align="right" width="100%">
+				<tr><td><%= will_paginate @sub_genres, :params => params%></td></tr>
+				<tr><td align="center">共<%= @sub_genres.total_entries%>条记录</td></tr>	
+			</table>
+		</td>
+	</tr>
+</table>
+<%end%>
+<br/>
+<%= button_to "返回", :action => "index"%>

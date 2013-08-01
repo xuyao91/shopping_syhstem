@@ -1,0 +1,79 @@
+        <table width="95%" id="cart_bg">
+            <tr>
+                <td>
+                    <b>我的购物车</b>
+                </td>
+            </tr>
+        </table><br/>
+        <table cellspacing="0" border="1" width="90%" id="cart">
+            <tr align="center">
+            	<th>
+                   商品ID
+		        </th>
+                <th>
+                    商品名
+                </th>
+				<th>
+					数量
+				</th>
+				<th>
+					图片
+				</th>
+				<th>
+					单价
+				</th>
+                <th>
+                    小计
+                </th>
+                <th>
+                    操作
+                </th>
+            </tr>			
+			<% if @items.present?%>
+	            <% for item in @cart.items %>
+				<% product_image = Attachment.find_by_owner_id(item.product.id)%>			
+	            <tr align="center">	
+					<td>
+	            	<%=h item.product.id%>
+					</td>
+	                <td>
+	                    <%= link_to "#{item.product.name rescue '--'}",:controller=>"/product",:action=>'detail',:id=>item.product.id %>
+	                </td>
+					<td class="modify">
+						<div id = "modify_count_<%= item.product.id %>">
+						<%= item.quantity rescue '--' %>
+						<%= link_to_remote "修改",:url=>{:action => 'load_modify', :id => item.product.id, :count => item.quantity} %>	
+						</div>		
+					</td>
+					<td>
+						<%= image_tag(Attachment.get_image("temp_image",product_image.file_name),:size=>"65x50")%>
+					</td>
+					<td>
+						<b><font color="red"><%= number_to_currency(item.product.price.to_i,:unit => "&yen") %></font></b>
+					</td>
+	                <td>
+	                    <b><font color="red"><%= number_to_currency(item.product.price.to_i*item.quantity.to_i,:unit => "&yen") %></font></b>
+	                </td>
+	                <td>	
+	                    <%= button_to "删除", {:action=> 'delete_cart', :id=>item.product.id},:confirm => "Are you sure?" %>
+	                </td>
+	            </tr>
+				<% end %>
+				<tr align="right">
+					<td colspan=7>
+						总计：<font color="red"><b><%= number_to_currency(@sum,:unit =>"&yen") %></b></font>&nbsp;&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td colspan="7" align="center">
+						<%= button_to " 购买 ", :controller=>'/user_address', :action=>:index	 %>
+					</td>
+				</tr>
+			<% else %>
+				<td colspan="7" align="center">
+					<font color="#c0c0c0">
+						您的购物车还是空的哦！
+					</font>
+				</td>		
+            <% end %>
+        </table>

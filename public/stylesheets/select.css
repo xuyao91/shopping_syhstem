@@ -1,0 +1,6 @@
+body {
+	
+}
+.bg{ background-image:url(/images/bg_1.png);
+    background-repeat: repeat-x;
+    height: 30px;}

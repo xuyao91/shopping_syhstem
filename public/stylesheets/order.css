@@ -1,0 +1,29 @@
+@charset "utf-8";
+body {
+}
+
+#order_bg {
+    background-image: url(/images/bg_1.png);
+    background-repeat: repeat-x;
+    height: 30px;
+}
+
+#order th {
+    background-color: #4bacff;
+    border: 1px solid #0058a3;
+}
+
+#order {
+    color: #000000;
+    background-color: #eaf5ff;
+    border: 1px solid #0058a3;
+    border-collapse: collapse;
+}
+
+#order td {
+    border: 1px solid #0058a3;
+}
+
+#order tr.tr {
+    background-color: #c7e5ff;
+}

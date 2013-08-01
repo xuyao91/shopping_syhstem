@@ -1,0 +1,69 @@
+        <table align="left" height=30 width="100%" align="center">
+            <tr>
+                <% @sub_genre.each do |sub_genre| %>
+                <th align="center" width="20%" BGCOLOR="#7A8B8B">
+                    <%= link_to "#{sub_genre.sub_name}",:action =>'sub_genre',:id=>sub_genre.id %>
+                </th>
+                <% end %>
+                <td width="50%">
+                </td>
+            </tr>
+        </table>
+        <table border="0" cellspacing="40">
+            <% if @products.present? %>
+            <% @products.each_with_index do |product, index| %>
+            <% product_attachment = Attachment.find_by_owner_id(product.id) %>
+            <% if index % 5 ==0 %>
+            <tr>
+                <td align="center">
+                    <% if product_attachment.present? %>
+                    <% image_name = product_attachment.file_name %>
+                    <% form_tag  "/product/detail/#{product.id}" do %>
+						  <%= image_submit_tag(Attachment.get_image("middle_images",image_name))%> 
+                    <p>
+                        <%= link_to "#{product.name.scan(/./)[0,10]}",:action=>'detail',:id=>product.id %>
+                    </p>
+					<%= image_tag 'money.png'%>
+				 <font size="2" color="red"><b><%= product.price%></b></font>
+					<% end %>
+                    <% end %>
+                </td>
+                <% else %>
+                <% if index % 5 ==0 %>
+                <td align="center">
+                    <% if product_attachment.present? %>
+                    <% image_name = product_attachment.file_name %>
+                     <% form_tag  "/product/detail/#{product.id}" do %>
+						  <%= image_submit_tag(Attachment.get_image("middle_images",image_name))%> 
+                    <p>
+                        <%= link_to "#{product.name.scan(/./)[0,10]}",:action=>'detail',:id=>product.id %>
+                    </p>
+					<%= image_tag 'money.png'%>
+				 <font size="2" color="red"><b><%= product.price%></b></font>
+					<% end %>
+                    <% end %>
+                </td>
+            </tr>
+            <% else %>
+            <td align="center">
+                <% if product_attachment.present? %>
+                <% image_name = product_attachment.file_name %>
+                 <% form_tag  "/product/detail/#{product.id}" do %>
+						  <%= image_submit_tag(Attachment.get_image("middle_images",image_name))%> 
+                <p>
+                    <%= link_to "#{product.name.scan(/./)[0,10]}",:action=>'detail',:id=>product.id %>
+                </p>
+				<%= image_tag 'money.png'%>
+				 <font size="2" color="red"><b><%= product.price%></b></font>
+				<% end %>
+                <% end %>
+            </td>
+            <% end %>
+            <% end %>
+            <%end %>
+            <%end %>
+        </table>
+     <%= will_paginate @products %>
+        共<%= @products.total_pages %>页&nbsp
+     <%= @products.total_entries %>条记录&nbsp
+

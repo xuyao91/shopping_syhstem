@@ -1,0 +1,13 @@
+
+<font size="5" color="blue">商品分类</font>
+<br/>
+<%= error_messages_for :genre%>
+
+<% form_tag '/admin/genre/create_genre' do %>
+	<%= text_field :genre, :name%><br/><br/>
+
+	<%= image_submit_tag "submit.png"%>
+
+<% end %>
+<br/>
+<%= button_to "返回", :action => "index"%>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/shopping-test-4/!svn/ver/1/test/functional/admin
+END
+genre_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/shopping-test-4/!svn/ver/1/test/functional/admin/genre_controller_test.rb
+END
+product_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/shopping-test-4/!svn/ver/1/test/functional/admin/product_controller_test.rb
+END
+admin_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/shopping-test-4/!svn/ver/1/test/functional/admin/admin_controller_test.rb
+END

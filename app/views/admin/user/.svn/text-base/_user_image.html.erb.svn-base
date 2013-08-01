@@ -1,0 +1,5 @@
+用户头像：<%= file_field (:commodity, :image, :onchange => 'this.form.action="/admin/user/image_preview";this.form.submit();')%>
+<div id='image_preview_1'></div>
+
+<br/>
+

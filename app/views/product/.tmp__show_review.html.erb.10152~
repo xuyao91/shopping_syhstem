@@ -1,0 +1,102 @@
+<div id = "show_review">
+    <% if @reviews.present? %>
+	<% @reviews.each_with_index do |review,i| %>
+	<% if i % 2 ==0 %>
+    <table border="0" cellspacing="0" width="80%" id="table_bg">
+        <tr>      
+            <td rowspan="3" width="120">
+                <% user_attachment = UserAttachment.find_by_owner_id(review.user_id) %>
+                <% if user_attachment.present? %>
+                <%= image_tag(Attachment.get_image("middle_images",user_attachment.file_name)) %>
+                <% else %>
+                <%= image_tag 'picture2.png' %>
+                <% end %><br/>
+                <font color="#1874CD"><center>
+                    <%= review.try(:user).try(:login) %></center>
+                </font>
+            </td>
+            <td>
+                <% for i in 1..review.score.to_i %>
+                <%= image_tag 'star_1.png' %>
+                <% end %>
+				<font color="red" size="2"><%= review.score.to_i %>分</font>
+				
+            </td>
+            <td align="right">
+              <font color="#999999" size="2">  <%= review.updated_at.strftime("%Y/%m/%d %H:%M") %></font>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <font color=":#333333"><%= review.content %></font>
+            </td>
+        </tr>
+        <tr>
+            <% @opinion_agrees = Opinion.count :conditions =>["review_id = ? and opinion = ?",review.id,true] %>
+            <% @opinion_againsts = Opinion.count :conditions =>["review_id = ? and opinion = ?",review.id,false] %>
+			<td width="130" align="center"><font color="#999999" size="2">此评论对我</font></td>
+            <td id="opinion">
+                <%= link_to "有用(#{@opinion_agrees})",:controller =>'/opinion', :action => :agree, :id=>params[:id], :review_id => review.id %>
+            
+                <%= link_to "没用(#{@opinion_againsts})",:controller =>'/opinion', :action => :against, :id=>params[:id], :review_id => review.id %>
+        </td>
+		</tr>
+        
+    </table>
+	<% else %>
+   <table border="0" cellspacing="0" width="80%">
+        <tr>      
+            <td rowspan="3" width="120">
+                <% user_attachment = UserAttachment.find_by_owner_id(review.user_id) %>
+                <% if user_attachment.present? %>
+                <%= image_tag(Attachment.get_image("middle_images",user_attachment.file_name)) %>
+                <% else %>
+                <%= image_tag 'picture2.png' %>
+                <% end %><br/>
+                <font color="#1874CD"><center>
+                    <%= review.try(:user).try(:login) %></center>
+                </font>
+            </td>
+            <td>
+                <% for i in 1..review.score.to_i %>
+                <%= image_tag 'star_1.png' %>
+                <% end %>
+				<font color="red" size="2"><%= review.score.to_i %>分</font>
+				
+            </td>
+            <td align="right">
+              <font color="#999999" size="2">  <%= review.updated_at.strftime("%Y/%m/%d %H:%M") %></font>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <font color=":#333333"><%= review.content %></font>
+            </td>
+        </tr>
+        <tr>
+            <% @opinion_agrees = Opinion.count :conditions =>["review_id = ? and opinion = ?",review.id,true] %>
+            <% @opinion_againsts = Opinion.count :conditions =>["review_id = ? and opinion = ?",review.id,false] %>
+			<td width="130" align="center"><font color="#999999" size="2">些评论对我</font></td>
+            <td id="opinion">
+                <%= link_to "有用(#{@opinion_agrees})",:controller =>'/opinion', :action => :agree, :id=>params[:id], :review_id => review.id %>
+            
+                <%= link_to "没用(#{@opinion_againsts})",:controller =>'/opinion', :action => :against, :id=>params[:id], :review_id => review.id %>
+        </td>
+		</tr>
+       
+    </table>
+	<% end %>
+	<% end %>
+    <% else %>
+    <table bgcolor="#FFEFDB">
+        <tr>
+            <td align="center" colspan="6">
+                <font size=2 color="#7A7A7A">
+                    还没有用户评论此商品噢,快来当第一个评论者吧！
+                </font>
+            </td>
+        </tr>
+    </table>
+    <% end %>
+</div>
+<br/>

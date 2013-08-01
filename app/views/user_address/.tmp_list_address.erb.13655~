@@ -1,0 +1,50 @@
+<table border="1" cellspacing="0" width="700">
+	<tr>
+		<th>
+		性名
+		</th>
+		<th>
+		收货地址
+		</th>
+		<th>
+		邮政编码
+		</th>
+		<th>
+		电话号码
+		</th>
+		<th colspan="2">
+			操作
+		</th>
+		
+	</tr>
+	<% if @address.present?%>
+	<% @address.each do |address|%>
+	<tr>
+		<td>
+			<%= address.name %>
+		</td>
+		<td>
+			<%= address.address %>
+		</td>
+		<td>
+			<%= address.code %>
+		</td>
+		<td>
+			<%= address.tel %>
+		</td>
+		<td>
+			<%= button_to "删除",{:action=>'del_address',:id=>address.id},:confirm=>"are you sure ?" %>
+		</td>
+		<td>
+			<%= button_to "编辑",:action=>'edit',:id=>address.id %>
+		</td>
+	</tr>
+	<% end %>
+	<% else %>
+	<tr>
+		<td colspan="6" align="center">
+			暂无信息
+		</td>
+	</tr>
+	<% end %>
+</table>

@@ -1,0 +1,47 @@
+<center>
+<table align="center"><tr><td><font size=6 color="#104E8B" face="华文楷体"><blink>我的信息</blink></font></td></tr></table>
+    <table width="60%">
+        <tr>
+            <td>
+            	<% if @user_image.present?%>
+                <%= image_tag(Attachment.get_image("temp_image",@user_image.file_name),:heigth=>'100',:width => '100') %>
+				<% else%>
+				<%= image_tag 'picture2.png' %>
+				<% end %>
+            </td>
+            <td>
+                <table cellspacing="1" width="100%" border="1">                	
+					<tr>
+                        <td width="30%">姓名：</td>
+                        <td><%= @user.login %></td>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <td>电子邮件:</td>
+                        <td><%= @user.email %></td>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <td>性别：</td>
+                        <td><%= @user.gender %></td>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <td>年龄：</td>
+                        <td><%= @user.age %></td>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <td>电话号码:</td>
+                        <td><%= @user.tel %></td>
+					</tr>
+					<tr>
+						<td>注册时间：</td>
+						<td><%= @user.created_at.strftime("%Y/%m/%d") rescue ''%></td>
+					</tr>                    
+                </table>
+            </td>
+        </tr>
+    </table>
+    <%= link_to '修改信息', :action=>'edit', :id=>@user.id %>
+</center>

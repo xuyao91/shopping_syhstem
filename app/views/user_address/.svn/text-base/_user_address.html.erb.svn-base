@@ -1,0 +1,26 @@
+<%#= error_messages_for :user_address %>
+  <tr>
+	<td>收货人姓名：</td>
+	<td><%= text_field :user_address, :name %></td>
+  </tr>
+  <tr>
+	<td>邮政编码：</td>
+	<td><%= text_field :user_address, :code,:maxlength=>6 %></td>
+  </tr>
+    <tr>
+	<td>支付方式：</td>
+	<td><%= radio_button_tag("payment","zhifubao",checked = true)%>信用卡&nbsp;
+	    <%= radio_button_tag("payment","wangyin")%>个人网银&nbsp;
+		<%= radio_button_tag("payment","huodao")%>货到付款&nbsp;
+	</td>
+  </tr>
+  <tr>
+	<td>详细地址:</td>
+	<td><%= text_area :user_address,:address, :rows=>3, :cols=>62 %></td>
+  </tr>
+  <tr>
+	<td>手机号码：</td>
+	<td><%= text_field :user_address,:tel %></td>
+  </tr>
+ 
+

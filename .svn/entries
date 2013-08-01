@@ -1,0 +1,123 @@
+10
+
+dir
+147
+http://192.168.75.10/repos/shopping-test-4
+http://192.168.75.10/repos/shopping-test-4
+
+
+
+2012-02-23T06:49:03.007183Z
+147
+gb
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+fe888404-31bd-11e1-aad6-cb43622a8c42
+
+test
+dir
+
+app
+dir
+
+Rakefile
+file
+
+
+
+
+2012-01-30T06:33:26.750000Z
+17f2f134da4cd31ea095d5868ca89e86
+2011-12-29T12:27:44.278246Z
+1
+zb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+307
+
+script
+dir
+
+config
+dir
+
+db
+dir
+
+doc
+dir
+
+lib
+dir
+
+vendor
+dir
+
+README
+file
+
+
+
+
+2012-01-30T06:33:26.750000Z
+a58e68a7599c976f071d5b9c6fa67fb3
+2011-12-29T12:27:44.278246Z
+1
+zb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10011
+
+public
+dir
+

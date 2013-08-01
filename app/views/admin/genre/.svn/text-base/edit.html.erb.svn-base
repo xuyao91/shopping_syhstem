@@ -1,0 +1,9 @@
+<font size="5" color="blue">分类编辑</font>
+<br/>
+<%= error_messages_for :genre%>
+<% form_tag "/admin/genre/update/#{@genre.id}" do %>
+	<%= text_field :genre, :name%>
+	<%= submit_tag "update"%>
+<% end %>
+<br/>
+<%= button_to "返回", :action => "index"%>

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/will_paginate
+END
+will_paginate.gemspec
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/will_paginate/will_paginate.gemspec
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/will_paginate/LICENSE
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/will_paginate/Rakefile
+END
+README.rdoc
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/will_paginate/README.rdoc
+END
+.manifest
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/will_paginate/.manifest
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/will_paginate/.gitignore
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/will_paginate/init.rb
+END
+CHANGELOG.rdoc
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/will_paginate/CHANGELOG.rdoc
+END

@@ -1,0 +1,50 @@
+cn: 
+  activerecord: 
+    models: 
+      admin: "管理员信息"  #g
+      user: "用户信息"  #g
+      sub genre: "小分类信息"  #g
+      product: "商品信息"  #g
+      genre: "大分类信息"  #g
+      review: "评论信息"  #g
+      user_address: "收货人信息"  #g
+      order: "订单信息"  #g
+    attributes: 
+      admin: 
+        password_confirmation: "确认密码"  #g
+        password: "密码"  #g
+        login: "用户名"  #g
+        email: "邮箱"  #g
+      user:
+        password_confirmation: "确认密码"  #g
+        password: "密码"  #g
+        login: "用户名"  #g
+        email: "邮箱"  #g
+        age: "年龄"  #g
+        gender: "性别"  #g
+        tel: "电话"  #g
+      genre:
+        name: "名称"  #g
+      product:
+        genre_id: "分类"  #g
+        price: "价格"  #g
+        title: "商品名称"  #g
+        describe: "商品描述"
+        genre_id: "小分类"  #g
+        sub_genre_id: "大分类"  #g
+      brand:
+        name: "名称"  #g
+      review:
+        content: "内容"  #g
+      user_address:
+        name: "姓名"  #g
+        code: "邮政编码"  #g
+        tel: "电话号码"  #g
+        address: "地址"  #g
+      order:
+        total_price: "总价"
+        user_id: "用户名" #g
+        user_address_id: "地址"  #g
+      sub_genre:
+        sub_name: "名称"  #g
+        genre_id: "所属大分类"  #g

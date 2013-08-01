@@ -1,0 +1,125 @@
+<div id="error_message"><%= error_messages_for :add_user_address %></div>
+<table cellspacing="0" border="1">	
+	<tr align="center">
+		<th>
+			商品ID
+		</th>
+		<th>
+			商品名称
+		</th>
+		<th>
+			图片
+		</th>
+		<th>
+			商品单价
+		</th>
+		<th>
+			数量
+		</th>
+		<th>
+			商品小计
+		</th>
+	</tr>
+	<% if params[:id].present? %>
+	<tr align="center">
+		<td>
+			<%= @product.id%>
+		</td>
+		<td>
+			<%= link_to "#{@product.name}",:controller=>"/product",:action=>'detail',:id=>@product.id%>
+		</td>
+		<td>
+			<% product_image = ProductAttachment.find_by_owner_id(params[:id])%>
+			<%= image_tag(Attachment.get_image("temp_image",product_image.file_name),:size=>"60x50") %>
+		</td>
+		<td>
+			<font color="red"><b><%= number_to_currency(@product.price,:unit => "&yen") %></b></font>
+		</td>
+		<td>
+			<%= @quantity %>
+		</td>
+		<td>
+			<font color="red"><b><%= number_to_currency(@product.price.to_i * @quantity.to_i,:unit => "&yen") %></b></font>
+		</td>
+	</tr>
+	<tr align="right">
+		<td colspan="6">
+			<b>总计:</b>
+			<font color="red"><b><%= number_to_currency(@product.price.to_i * @quantity.to_i,:unit => "&yen") %>元</b></font>&nbsp;
+		</td>
+	</tr>
+	<% else %>
+	<% if @items.present?%>
+	<% @items.each do |item|%>
+	<% product_image = ProductAttachment.find_by_owner_id(item.product.id) %>
+	<tr align="center">
+		<td>
+			<%= item.product.id %>
+		</td>
+		<td>
+			<%= link_to "#{item.product.name}",:controller => "/product",:action=>'detail',:id=>item.product.id %>
+		</td>
+		<td>
+			<%= image_tag(Attachment.get_image("temp_image",product_image.file_name),:size=>"60x50") %>
+		</td>
+		<td>
+			<font color="red"><b><%= number_to_currency(item.product.price,:unit => "&yen") %></b></font>
+		</td>
+		<td>
+			<%= item.quantity%>
+		</td>
+		<td>
+			<font color="red"><b><%= number_to_currency(item.product.price.to_i * item.quantity.to_i,:unit => "&yen") %></b></font>
+		</td>
+	</tr>
+	<% end %>
+	<tr align="right">
+		<td colspan="6">
+			<b>总计</b>
+			<font color="red"><b><%= number_to_currency(@sum,:unit => "&yen") %>元</b></font>&nbsp;
+		</td>
+	</tr>
+	<% end %>
+	<% end %>
+</table><br/><br/><br/><br/>
+<% form_tag "/index/add_user_address" do %>
+<% if @user_address_1.present? %>
+<table>
+    <tr>
+        <td>
+            <%= select_tag 'user_address[id]', options_for_select([['================点击此处选择地址==================','']] + @user_address_1),
+            :onchange => remote_function(:url => {:action => :change_user_address},
+            :update => "user_address",
+            :with => "'user_address_id=' + value" ) %>
+			<font size=2><%= link_to "编辑我的收货信息",:action=>'list_address'%></font>
+        </td>
+    </tr>
+</table>
+<br/>
+<table cellspacing="0" border="1" id = "user_address_1">
+    <%= render :partial =>"user_address" %>
+</table>
+<table>
+    <%= hidden_field_tag 'product_id', "#{params[:id]}" %>
+    <%= hidden_field_tag 'product_count',"#{@quantity}" %>
+    <tr align="center">
+        <td colspan=2>
+            <%= submit_to_remote 'add_user_address','提交', :url=>{:action=>'add_user_address'} %>
+        </td>
+    </tr>
+</table>
+<% else %>
+<table cellspacing="0" border="1">
+    <%= render :partial =>"user_address" %>
+</table>
+<table >
+    <%= hidden_field_tag 'product_id', "#{params[:id]}" %>
+    <%= hidden_field_tag 'product_count',"#{@quantity}" %>
+    <tr align="center">
+        <td colspan=2>
+            <%= submit_to_remote 'add_user_address','提交', :url=>{:action=>'add_user_address'} %>
+        </td>
+    </tr>
+</table>
+<% end %>
+<% end %>

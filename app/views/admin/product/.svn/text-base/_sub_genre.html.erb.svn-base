@@ -1,0 +1,1 @@
+<%= select_tag "product[sub_genre_id]", options_for_select(@sub_genres.collect {|s| [ s.sub_name, s.id ]})%>

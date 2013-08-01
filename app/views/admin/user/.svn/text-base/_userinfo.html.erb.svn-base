@@ -1,0 +1,26 @@
+<table border="1" cellspacing="0" align="center" width="80%" height="100%">
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">用户名：</td>
+		<td><%= text_field :user, :login%></td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">Email:</td>
+		<td><%= text_field :user, :email%>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">性别：</td>
+		<td>
+			男：<%= radio_button(:user, :gender, "男")%>&nbsp;&nbsp;
+			女：<%= radio_button(:user, :gender, "女")%>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">年龄：</td>
+		<td><%= text_field :user, :age%></td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">Tel:</td>
+		<td><%= text_field :user, :tel,:maxlength=> 20%></td>
+	</tr>
+</table>

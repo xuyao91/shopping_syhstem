@@ -1,0 +1,29 @@
+<%= error_messages_for :user_address %>
+<table cellspacing="0" border="1">
+	<% @user_address_1.each do |user_address| %>
+	<tr>
+	<td>
+		<%= radio_button_tag 'user_address_info',:user_address %><%= user_address.name<<" "<<user_address.address<<" "<<user_address.code<<" "<<user_address.tel %>
+	</td>
+	</tr>
+	<% end %>	
+</table><br/>
+<div id = "show_user_address" >
+<table cellspacing="0" border="1">
+    <% form_tag "/user_address/add_user_address" do %>
+    <tr>
+        <td>
+            <%= render :partial =>"user_address" %>		
+			<%= hidden_field_tag 'product_id', "#{params[:id]}"%>
+			<%= hidden_field_tag 'product_count',"#{@quantity}"%>			
+        </td>
+    </tr>
+    <tr align="center">
+        <td>
+            <%#= submit_tag "提交" %>
+			<%= submit_to_remote 'add_user_address','提交', :url=>{:action=>'add_user_address'} %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+</div>

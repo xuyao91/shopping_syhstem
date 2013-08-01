@@ -1,0 +1,94 @@
+<%= error_messages_for :user %>
+<center>
+<font size="5" color="blue">信息编辑</font>
+</center>
+<br/>
+<iframe name="iframe" style="display:none;">
+</iframe>
+<% form_for :user, :url => { :action => "edit" }, :html => {:multipart => true, :target => 'iframe'} do |f| %>
+<table width="80%">
+    <tr>
+        <td align="right" width="40%">
+        	<table width="100%">
+        		<tr>
+        			<td align="right">
+        				<% if @user_image.present? %>
+			            	<%= image_tag(Attachment.get_image("temp_image",@user_image.file_name),:height=>150) %>
+			            <% else %>
+			            	<%= image_tag 'picture2.png' %>
+			            <% end %>
+        			</td>
+        		</tr>
+				<tr>
+					<td align="right">
+						<div id="change_image">
+			               <font size="2"> <%= link_to_remote '[更改头像]',:url => {:controller => "user",:action => "add_image"} %></font></div>
+			                <div id='image_preview'>
+			                </div>
+			            	
+					</td>
+				</tr>
+        	</table>            
+        </td>
+        <td>
+            <table width="80%" border="1" cellspacing="0" align="center" cellpadding="3">
+                <tr>
+                    <td>
+                        姓名: 
+                    </td>
+                    <td>
+                        <%= f.text_field  :login, :maxlength =>12 %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        电子邮件:
+                    </td>
+                    <td>
+                        <%= f.text_field :email, :maxlength =>26 %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        性别:
+                    </td>
+                    <td>
+                    	<%= radio_button_tag 'gender','男',true %><%= label_tag 'gender_male','男'%>
+						<%= radio_button_tag 'gender','女'%><%= label_tag 'gender_female','女'%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        年龄:
+                    </td>
+                    <td>
+                        <%= f.text_field :age, :maxlength =>3 %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        电话号码:
+                    </td>
+                    <td>
+                        <%= f.text_field :tel, :maxlength =>13 %>
+                    </td>
+                </tr>
+                <%#= f.hidden_field :id %>
+                <tr>
+                    <td align="center" colspan="2">
+                        <%= button_to_function '确定', "this.form.action='#{url_for :action => 'edit'}';this.form.target='_self';this.form.submit()" %>
+                        <font size=2>
+                            <%= link_to '修改密码', :action=>'edit_password', :id=>@user.id %>
+                        </font>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>	
+</table>
+<% end %>
+<br/><br/>
+<center>
+<%= button_to '返回' ,:action=>:index %>
+</center>

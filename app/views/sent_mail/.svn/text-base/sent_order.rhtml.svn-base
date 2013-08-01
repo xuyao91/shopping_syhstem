@@ -1,0 +1,22 @@
+<h4><%= @user%>,您好！</h4>
+<h5>货物已经发送，请准时查收！感谢您对天狼购物网站对支持，我们将竭诚为您服务，祝您购物愉快。</h5>
+您的用户名为：<%= @user%><br/>
+<pre>
+您的订单为：
+<table border="1">
+	<tr>
+		<td>商品名</td>
+		<td>单价</td>
+		<td>数量</td>
+		<td>总价</td>
+	</tr>
+	<tr>
+		<td><%= @name %></td>
+		<td><%= @price%></td>
+		<td><%= @count%></td>
+		<td><%= @total_price%></td>
+	</tr>
+</table>
+ 
+
+

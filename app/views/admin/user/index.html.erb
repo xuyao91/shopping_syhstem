@@ -1,0 +1,68 @@
+<center><font size="5" color="blue">用户管理</font></center><br/>
+<% form_tag "/admin/user/delete_all" do%>
+<table border="1" cellspacing="0" width="100%" align="center">
+	<tr bgcolor="#BBFFFF" align="center">
+		<td></td>
+		<td>ID</td>
+		<td>头像</td>
+		<td>用户名</td>
+		<td>Email</td>
+		<td>性别</td>
+		<td>年龄</td>
+		<td>Tel</td>
+		<td></td>
+	</tr>
+<% if @users.present?%>
+	<% @users.each do |user|%>
+	<% user_attachment = UserAttachment.find_by_owner_id(user.id)%>
+	<% if user_attachment.present?%>
+	<% user_image = user_attachment.file_name%>
+	<% @image = Attachment.get_image("small_images", user_image)%>
+	<% else%>
+	<% @image = "search.png"%>	
+	<%end%>
+	<tr align="center" onmouseout="this.style.backgroundColor=''"; onmouseover="this.style.backgroundColor='#FFcccc'">
+		<td><%= check_box_tag "user_id[]", user.id%></td>
+		<td><%= user.id%></td>
+		<td><%= image_tag @image%></td>
+		<td><%= user.login%></td>
+		<td><%= user.email%></td>
+		<td><%= user.gender%></td>
+		<td><%= user.age%></td>
+		<td><%= user.tel%></td>
+		<td>
+			<%= link_to "详细", :action => "detail", :id => user.id%>&nbsp;&nbsp;&nbsp;
+			<%= link_to "编辑", :action => "edit", :id => user.id%>&nbsp;&nbsp;&nbsp;
+			<%= link_to "删除", {:action => "delete", :id => user.id}, :confirm => "Are you sure ?"%>
+		</td>
+	</tr>
+	<% end %>
+<% else %>
+	<tr>
+		<td colspan="7" align="center">no user!</td>
+	</tr>
+<% end %>
+</table>
+<table width="85%">
+	<tr>
+		<td width="50%" align="center"><%= submit_tag "批量删除", :confirm => "Are you sure ?"%></td>
+		<td width="50%">
+			<table align="right" width="100%">
+				<tr><td><%= will_paginate @users, :params => params%></td></tr>
+				<tr><td align="center">共<%= @users.total_entries%>条记录</td></tr>	
+			</table>
+		</td>
+	</tr>
+</table>
+<%end%>
+<br/><br/>
+<table allign="center" width="100%">
+	<tr>
+		<td width="50%" align="right"><%= button_to "添加", :action => "add"%></td>
+		<td width="50%" align="left"><%= button_to "返回", :controller => "/admin/product", :action => "index"%></td>
+	</tr>
+</table>
+
+
+
+

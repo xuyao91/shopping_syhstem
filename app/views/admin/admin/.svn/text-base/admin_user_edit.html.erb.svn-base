@@ -1,0 +1,27 @@
+<center><font size="5" color="blue">编辑后台用户信息</font></center><br/>
+<br/>
+<%= error_messages_for :admin_user %>
+
+<% form_tag "/admin/admin/admin_user_update/#{@admin_user.id}" do%>
+<table align="center" width="60%" border="1" cellspacing="0" cellpadding="3">
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">姓名</td>
+		<td><%=text_field :admin_user, :login%></td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">密码：</td>
+		<td><%= password_field_tag "new_password", nil, :maxlength=>6%></td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">Email</td>
+		<td><%= text_field :admin_user, :email%></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><%= image_submit_tag "submit.png"%></td>
+	</tr>
+</table>
+<%end%>
+<br/>
+<center>		
+	<%= button_to "返回", :action => "admin_user"%>
+</center>

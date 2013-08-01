@@ -1,0 +1,91 @@
+<br/>
+<br/>
+
+<table align="center" width="90%"  bgcolor="#F0F0F0">
+    <tr>
+        <td width="55%">
+            <%= image_tag "user_login.png" %>
+        </td>
+        <td width="45%">
+            <table cellspacing="0" border="1" width="80%" height="300" align="left" bgcolor="#F0F0F0">
+                <tr>
+                    <td>
+                        <table  width="100%" height="25">
+                            <tr align="right">
+                            	<td align="left">
+                            		<font size="4" color="red">走秀购物网</font>
+                            	</td>
+                                <td align="right">
+                                    <%= link_to '注册',:action =>'signup' %>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table width="80%" height="60%" align="center">
+                            <% form_tag do -%>
+							<tr>
+                                <td colspan="2" height="30">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center" colspan="2">
+                                	<p><font color="red" size="2"><%= flash[:notice]%></font></p>
+								</td>
+							</tr>
+							<tr>
+                                <td colspan="2" height="30">
+                                </td>
+                            </tr>
+							<tr>
+								<td align="right">                                    
+                                    <label for="login">姓名：</label>
+                                </td>
+                                <td>
+                                	<%= text_field_tag 'login', nil,:size=>20%>                                
+                            	</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="30">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <p>
+                                    <label for="password">
+                                        密码：
+                                    </label>
+                                </td>
+                                <td>
+                                <%= password_field_tag 'password', nil, :maxlength=>6, :size=>21 %>
+                                </p>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2" align="center">
+                                <p>
+                                    <%= image_submit_tag '2012-01-06_110856.png' %>
+                                </p>
+								
+                            </td>
+                        </tr>
+                        <% end -%>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table><br/><br/>
+<table align="center" valign="bottom" >
+    <tr>
+        <td>
+            <font size=2>
+                &copy;版权所有2011-2012  江西智科软件有限公司
+            </font>
+        </td>
+    </tr>
+</table>

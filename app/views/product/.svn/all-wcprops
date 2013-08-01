@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/shopping-test-4/!svn/ver/145/app/views/product
+END
+search.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/shopping-test-4/!svn/ver/145/app/views/product/search.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/shopping-test-4/!svn/ver/141/app/views/product/index.html.erb
+END
+cart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/shopping-test-4/!svn/ver/137/app/views/product/cart.html.erb
+END
+sub_genre.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/shopping-test-4/!svn/ver/137/app/views/product/sub_genre.html.erb
+END
+_select.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/shopping-test-4/!svn/ver/137/app/views/product/_select.erb
+END
+change_sub_genre.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/shopping-test-4/!svn/ver/137/app/views/product/change_sub_genre.html.erb
+END
+_show_review.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/shopping-test-4/!svn/ver/137/app/views/product/_show_review.html.erb
+END
+genre.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/shopping-test-4/!svn/ver/87/app/views/product/genre.html.erb
+END
+detail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/shopping-test-4/!svn/ver/148/app/views/product/detail.html.erb
+END
+_modify.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/shopping-test-4/!svn/ver/134/app/views/product/_modify.erb
+END

@@ -1,0 +1,98 @@
+<table width="95%" id="collect_bg">
+    <tr>
+        <td>
+            <b>我的收藏夹</b>
+        </td>
+    </tr>
+</table>
+<br/>
+<table border="1" cellspacing="0" width="90%" id="collect">
+    <tr align="center">
+        <th>
+            商品ID
+        </th>
+        <th>
+            商品名
+        </th>
+		<th>
+	价格
+		</th>
+		 <th>
+            图片
+        </th>
+		<th>
+	收藏时间
+		</th>
+        <th colspan=2>
+            操作
+        </th>
+    </tr>
+    <% if @pro_collects.present? %>
+    <% @pro_collects.each_with_index do |pro_collect,i| %>
+	<% product_image = ProductAttachment.find_by_owner_id(pro_collect.product_id)%>
+	<% if i % 2 == 0%>
+    <tr align="center">
+        <% product = Product.find(pro_collect.product_id) %>
+        <td>
+            <%= product.id %>
+        </td>
+        <td>
+            <%= link_to "#{product.name}",:controller=>"/product",:action=>'detail',:id=>product.id %>
+        </td>
+        <td>
+            <font color="#ff0000">
+                <b><%= number_to_currency(product.price,:unit =>"&yen") %></b>
+            </font>
+        </td>
+		<td>
+			<%= image_tag(Attachment.get_image("temp_image",product_image.file_name),:size=>"60x50") %>
+		</td>
+		<td>
+			<%= pro_collect.created_at.strftime("%Y/%m/%d %H:%M") %>
+		</td>
+        <td>
+            <%= button_to '取消收藏', {:action=> 'delete',:id=> pro_collect.product_id}, :confirm => "Are you sure?" %>
+        </td>
+        <td>
+            <%= button_to '购买',:controller =>'/user_address', :action=> 'index',:id=>product.id %>
+        </td>
+		<% else %>
+    <tr align="center" class="tr">
+        <% product = Product.find(pro_collect.product_id) %>
+        <td>
+            <%= product.id %>
+        </td>
+        <td>
+            <%= link_to "#{product.name}",:controller=>"/product",:action=>'detail',:id=>product.id %>
+        </td>
+        <td>
+            <font color="#ff0000">
+                <b><%= number_to_currency(product.price,:unit =>"&yen") %></b>
+            </font>
+        </td>
+		<td>
+			<%= image_tag(Attachment.get_image("temp_image",product_image.file_name),:size=>"60x50") %>
+		</td>
+		<td>
+			<%= pro_collect.created_at.strftime("%Y/%m/%d %H:%M") %>
+		</td>
+        <td>
+            <%= button_to '取消收藏', {:action=> 'delete',:id=> pro_collect.product_id}, :confirm => "Are you sure?" %>
+        </td>
+        <td>
+            <%= button_to '购买',:controller =>'/user_address', :action=> 'index',:id=>product.id %>
+        </td>		
+        <% end %>
+		<% end %>
+        <% else %>
+        <td colspan=7 align="center">
+            <font color="#c0c0c0">
+                收藏夹为空
+            </font>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<%= will_paginate @pro_collects %>
+共<%= @pro_collects.total_pages %>页&nbsp
+<%= @pro_collects.total_entries %>条记录&nbsp

@@ -1,0 +1,22 @@
+<font size="5" color="blue">个人信息编辑</font>
+<br/>
+<%= error_messages_for :admin %>
+
+<% form_tag "/admin/admin/personal_update/#{@current_admin.id}" do %>
+	<table>
+  		<tr>
+  			<td>用户名：</td>
+			<td><%= text_field :admin, :login%></td>
+  		</tr>
+		<tr>
+		
+		<tr>
+			<td>Email:</td>
+			<td><%= text_field :admin, :email%></td>
+		</tr>
+  		
+	</table>
+<%= image_submit_tag "submit.png"%>
+<%end%>
+<br/>
+	<%= button_to "返回", :action => "personal_info"%>

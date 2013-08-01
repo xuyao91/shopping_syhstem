@@ -1,0 +1,55 @@
+10
+
+dir
+147
+http://192.168.75.10/repos/shopping-test-4/app/views
+http://192.168.75.10/repos/shopping-test-4
+
+
+
+2012-02-23T06:49:03.007183Z
+147
+gb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fe888404-31bd-11e1-aad6-cb43622a8c42
+
+layouts
+dir
+
+product
+dir
+
+user_address
+dir
+
+pro_collect
+dir
+
+admin
+dir
+
+opinion
+dir
+
+order
+dir
+
+sent_mail
+dir
+
+user
+dir
+

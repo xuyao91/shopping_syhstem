@@ -1,0 +1,9 @@
+<table width="85%">
+	<tr id='file_field_<%= @file_id %>'>
+		<td width="80"><%= file_field_tag ("image_#{@file_id}", :onchange =>"this.form.action='/admin/product/image_preview?file_id=#{@file_id}';this.form.submit();") %></td>
+		<td align="center" valign="middle"><div id='image_preview_<%= @file_id %>'></div></td>
+		<%= hidden_field_tag 'arr[]', "image_#{@file_id}"%>
+		<td width="50"><%= link_to_remote "删除", :url => { :controller => "/admin/product", 
+						:action => "delete_preview", :file_id => @file_id }, :html => {} %></td>
+	</tr>
+</table>

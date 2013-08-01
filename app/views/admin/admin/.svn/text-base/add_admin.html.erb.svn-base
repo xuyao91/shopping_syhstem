@@ -1,0 +1,25 @@
+<center><font size="5" color="blue">添加管理用户</font></center>
+<br/>
+<%= error_messages_for :admin%>
+
+<% form_tag "/admin/admin/create_admin" do%>
+<table align="center" width="80%" height="100%" border="1" cellspacing="0" cellpadding="3">
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">用户名</td>
+		<td><%= text_field :admin, :login%><font size="1" color="red">*字母开头，允许字母数字下划线，允许5-16字节</font></td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">密码</td>
+		<td><%= password_field_tag "new_password",nil, :maxlength => 6%><font size="1" color="red">*6位密码</font></td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center">Email</td>
+		<td><%= text_field :admin, :email%><font size="1" color="red">*输入有效邮箱</font></td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><%= image_submit_tag "submit.png"%></td>
+	</tr>
+	
+</table>
+<%end %>
+<%= button_to "返回", :action => "admin_user"%>

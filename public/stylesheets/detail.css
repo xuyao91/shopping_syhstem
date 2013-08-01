@@ -1,0 +1,33 @@
+body {
+	
+}
+#float-bar .return {
+    background-position: -188px -202px;
+    padding-top: 20px;
+	background-image: url(/images/return_top.png);
+	background-repeat:no-repeat;
+}
+#float-bar div, #float-bar a {
+    line-height: 13px;
+    padding-top: 24px;
+    text-align: center;
+    width: 23px;
+}
+#opinion a{ font-size:12;}
+#opinion a:active,a:link{ text-decoration:none; color:#0000FF; }
+#opinion a:hover{ text-decoration:underline; color:red;}
+#table_bg{ background-color:#eeeeee;}
+#product_detail_bg{ background-image:url(/images/bg_1.png); background-repeat:repeat-x;height:30px;}
+.like_product_bg{ background-image:url(/images/bg_1.png); background-repeat:repeat-x;height:30px;}
+#review_bg{ background-image:url(/images/bg_1.png); background-repeat:repeat-x;height:30px;}
+.return a{ background-image:url(/images/return_top.png); 
+          height:71px;
+		  width:23px;
+          display:block;
+		 text-indent:-9999px;
+		 overflow:hidden;}
+.return {margin-left:790px;
+		 height:71px;
+		 width:23px;
+		 right:100px;
+		 buttom:100px;}

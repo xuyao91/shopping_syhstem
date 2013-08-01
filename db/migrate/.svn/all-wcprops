@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/repos/shopping-test-4/!svn/ver/120/db/migrate
+END
+20120116005903_create_opinions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/shopping-test-4/!svn/ver/95/db/migrate/20120116005903_create_opinions.rb
+END
+20111229093744_add_column.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/shopping-test-4/!svn/ver/23/db/migrate/20111229093744_add_column.rb
+END
+20111229091036_create_sub_genres.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/shopping-test-4/!svn/ver/5/db/migrate/20111229091036_create_sub_genres.rb
+END
+20120105110005_add_column_to_order.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/shopping-test-4/!svn/ver/24/db/migrate/20120105110005_add_column_to_order.rb
+END
+20111229025804_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/shopping-test-4/!svn/ver/2/db/migrate/20111229025804_create_users.rb
+END
+20111230015327_create_user_addresses.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/shopping-test-4/!svn/ver/4/db/migrate/20111230015327_create_user_addresses.rb
+END
+20111230015200_create_pro_collects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/shopping-test-4/!svn/ver/4/db/migrate/20111230015200_create_pro_collects.rb
+END
+20120106112530_add_column_to_product.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/shopping-test-4/!svn/ver/28/db/migrate/20120106112530_add_column_to_product.rb
+END
+20120110122508_add_score_to_review.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/shopping-test-4/!svn/ver/56/db/migrate/20120110122508_add_score_to_review.rb
+END
+20111230014424_create_reviews.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/shopping-test-4/!svn/ver/4/db/migrate/20111230014424_create_reviews.rb
+END
+20111231100726_add_unit_price_to_order.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/shopping-test-4/!svn/ver/23/db/migrate/20111231100726_add_unit_price_to_order.rb
+END
+20111231133949_create_sessions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/shopping-test-4/!svn/ver/11/db/migrate/20111231133949_create_sessions.rb
+END
+20111229024659_create_products.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/shopping-test-4/!svn/ver/1/db/migrate/20111229024659_create_products.rb
+END
+20111229120936_create_attachments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/shopping-test-4/!svn/ver/1/db/migrate/20111229120936_create_attachments.rb
+END
+20111229065022_create_genres.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/shopping-test-4/!svn/ver/5/db/migrate/20111229065022_create_genres.rb
+END
+20111229005849_create_admins.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/shopping-test-4/!svn/ver/120/db/migrate/20111229005849_create_admins.rb
+END
+20111230014632_create_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/shopping-test-4/!svn/ver/4/db/migrate/20111230014632_create_orders.rb
+END

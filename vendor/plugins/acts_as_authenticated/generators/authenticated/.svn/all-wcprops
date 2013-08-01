@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_authenticated/generators/authenticated
+END
+USAGE
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_authenticated/generators/authenticated/USAGE
+END
+authenticated_generator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_authenticated/generators/authenticated/authenticated_generator.rb
+END

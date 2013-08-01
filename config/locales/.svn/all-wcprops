@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/repos/shopping-test-4/!svn/ver/131/config/locales
+END
+cn.yml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/shopping-test-4/!svn/ver/131/config/locales/cn.yml
+END
+en.yml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/repos/shopping-test-4/!svn/ver/1/config/locales/en.yml
+END
+translation_cn.yml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/shopping-test-4/!svn/ver/129/config/locales/translation_cn.yml
+END

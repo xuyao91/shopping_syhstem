@@ -1,0 +1,337 @@
+<script type="text/javascript">
+    Shadowbox.init({
+		continuous: true,
+		counterType: "skip",
+	});
+</script>
+<table width="80%" align="center">
+    <tr height="20">
+    	<% if @product_images.present? %>			
+	        <td colspan=2 width="50%" align="center">
+	            <a href="<%= Attachment.get_image("temp_image", @product_images[0].file_name) %>" title="<%= @product.name%>" rel="shadowbox" ><%= image_tag(Attachment.get_image('temp_image', @product_images[0].file_name), :height=> "270") %>
+	            </a>
+	        </td>
+		<%else%>
+		<%= image_tag 'fork.png'%>
+		<% end %>
+        <td width="50%" rowspan="2">
+            <table width="100%" height="100%" cellspacing="0">
+                <tr>
+                    <td colspan=3>
+                        <b>商品名：
+                            <font size=4>
+                                <%= @product.name %>
+                            </font>
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=3>
+                        <b>价格：
+                            <font color="#ff0000" size="5">
+								<%= number_to_currency(@product.price)%>
+                            </font>元
+                        </b>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=3>
+                        <b>库存：<%= @product.quantity %>&nbsp;件</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=3>
+                        <b>描述：</b>
+                        <%= @product.describe %>
+                    </td>
+                </tr>
+				<tr>
+					<td colspan=3>
+						<b>商品评分：</b>
+						<% if @result != 0 %>
+	                        <% for i in 1..@ave_score.to_i %>
+							<%= image_tag 'star_1.png'%>
+							<% end %>
+						<% else %>
+							<% for i in 1..5 %>
+							<%= image_tag 'star_2.png'%>
+							<% end %>
+						<% end %>
+						<font size="2" color="#104E8B">(已有<%= @result %>人评论)</font>
+					</td>
+				</tr>
+                <tr bgcolor="#FFEFD5">
+                    <% form_tag "/user_address/index/#{@product.id}" do %>
+                    <td>
+                        &nbsp;<font size="2" color="red">我要买：<%= text_field_tag :count,'1',:size=>2,:maxlength=>2 %>件</font>
+                    </td>
+                    <td>
+                    	<%= image_submit_tag 'buy2.png'%>
+                        <%#= button_to '直接购买',:controller=>"/user_address", :action=>'user_address',:id=>@product.id %>
+                    </td>
+                    <% end %>
+					<td bgcolor="white">					
+					</td>
+                </tr>
+                <tr bgcolor="#FFEFD5">
+                	<% form_tag "/product/add_to_cart/#{@product.id}" do %>
+                    <td width="15%">
+                    	<%= image_submit_tag 'cart.png'%>
+                        <%#= button_to '加入购物车',  :action=>'add_to_cart',:id=> @product.id %>
+                    </td>
+					<% end %>
+					<% form_tag "/product/add_pro_collect/#{@product.id}" do %>
+                    <td align='left' width="20">
+                    	<%= image_submit_tag 'collect.png' %>
+                        <%#=button_to '收藏宝贝', :action=>'add_pro_collect',:id=>@product.id %>
+                    </td>
+					<% end %>
+					<td bgcolor="white">					
+					</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+	<tr>
+		<td align="center">
+			<table>
+				<tr>
+					<% @product_images.each do |product_image|%>
+			        <td align="center">	        	
+			            <a href="<%= Attachment.get_image("temp_image", product_image.file_name) %>"  title="<%= @product.name%>" rel="shadowbox[Vacation]"><%= image_tag(Attachment.get_image('small_images', product_image.file_name)) %>
+			            </a>
+			        </td>
+					<% end %>
+				</tr>
+			</table>
+			
+		</td>		
+	</tr>
+</table>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<table width="80%" >
+    <tr id="product_detail_bg">
+        <td>
+            <b>商品详细</b>
+        </td>
+    </tr><br/><br/>
+	<% @product_images.each do |product_image|%>
+	<tr>
+		<td align="center">
+			<%= image_tag(Attachment.get_image("temp_image",product_image.file_name))%>
+		</td>
+	</tr>
+	<% end %>
+</table>
+<br/>
+<br/>
+<br/>
+<br/>
+<table width="80%" align="center" >
+    <tr class="like_product_bg">
+        <td colspan="5">
+            <b>同类商品一览</b>
+        </td>
+    </tr><br/>
+    <tr height="150">
+        <% @like_products.each do |like_product| %>
+        <% product_attachment = ProductAttachment.find_by_owner_id(like_product.id) %>
+        <td align="center">
+            <% if product_attachment.present? %>
+            <% image_name = product_attachment.file_name %>
+            <% form_tag  "/product/detail/#{like_product.id}" do %>
+            <%= image_submit_tag(Attachment.get_image("middle_images",image_name)) %>
+            <br>
+            <p><%= link_to "#{like_product.name.scan(/./)[0,10]}",:action=>'detail',:id=>like_product.id %></p>
+			 <font color="#ff0000" size="3">
+				<b><%= number_to_currency(like_product.price)%></b>
+            </font>
+            <% end %>
+            <% end %>
+        </td>
+        <% end %>
+    </tr>
+</table>
+<br/>
+<br/>
+<br/>
+<% if @browse_products.present?%>
+<table border="0" cellspacing="0" width="80%" class="like_product_bg">
+	<tr>
+		<td colspan="5">
+			<b>我的浏览历史</b>
+		</td>
+	</tr>
+</table>
+<table border="0" cellspacing="0" width="80%">
+	<tr>
+	<% @browse_products.each do |browse_product|%>
+	<% browse_product_attachments = ProductAttachment.find_by_owner_id(browse_product.id) %>
+		<td align="center">
+			<% if browse_product_attachments.present?%>
+			<% image_name = browse_product_attachments.file_name %>	
+			<% form_tag "/product/detail/#{browse_product.id}" do %>
+			<%= image_submit_tag(Attachment.get_image("middle_images",image_name))%>	
+			<% end %>
+			<% end %>	
+		    <%= link_to "#{browse_product.name.scan(/./)[0,10]}",:action=>'detail', :id=>'browse_product.id' %><br/>
+			 <font color="#ff0000" size="3">
+				<b><%= number_to_currency(browse_product.price)%></b>
+            </font>
+		</td>
+	<% end %>
+	</tr>
+</table>
+<% end %>
+<br/>
+<br/>
+<br/>
+<br/>
+<table width="80%" align="center" id="review_bg">
+    <tr width="100%">
+        <td colspan="3">
+            <b>用户评论</b>
+        </td>
+    </tr>
+</table>
+<br/>
+
+<div id = "show_review">
+    <% if @reviews.present? %>
+	<% @reviews.each_with_index do |review,i| %>
+	<% if i % 2 ==0 %>
+    <table border="0" cellspacing="0" width="80%" id="table_bg">
+        <tr>      
+            <td rowspan="3" width="120">
+                <% user_attachment = UserAttachment.find_by_owner_id(review.user_id) %>
+                <% if user_attachment.present? %>
+                <%= image_tag(Attachment.get_image("middle_images",user_attachment.file_name)) %>
+                <% else %>
+                <%= image_tag 'picture2.png' %>
+                <% end %><br/>
+                <font color="#1874CD"><center>
+                    <%= review.try(:user).try(:login) %></center>
+                </font>
+            </td>
+            <td>
+                <% for i in 1..review.score.to_i %>
+                <%= image_tag 'star_1.png' %>
+                <% end %>
+				<font color="red" size="2"><%= review.score.to_i %>分</font>
+				
+            </td>
+            <td align="right">
+              <font color="#999999" size="2">  <%= review.updated_at.strftime("%Y/%m/%d %H:%M") %></font>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <font color=":#333333"><%= review.content %></font>
+            </td>
+        </tr>
+        <tr>
+            <% @opinion_agrees = Opinion.count :conditions =>["review_id = ? and opinion = ?",review.id,true] %>
+            <% @opinion_againsts = Opinion.count :conditions =>["review_id = ? and opinion = ?",review.id,false] %>
+			<td width="130" align="center"><font color="#999999" size="2">此评论对我</font></td>
+            <td id="opinion">
+                <%= link_to "有用(#{@opinion_agrees})",:controller =>'/opinion', :action => :agree, :id=>@product.id, :review_id => review.id %>
+            
+                <%= link_to "没用(#{@opinion_againsts})",:controller =>'/opinion', :action => :against, :id=>@product.id, :review_id => review.id %>
+        </td>
+		</tr>       
+    </table>
+	<% else %>
+   <table border="0" cellspacing="0" width="80%">
+        <tr>      
+            <td rowspan="3" width="120">
+                <% user_attachment = UserAttachment.find_by_owner_id(review.user_id) %>
+                <% if user_attachment.present? %>
+                <%= image_tag(Attachment.get_image("middle_images",user_attachment.file_name)) %>
+                <% else %>
+                <%= image_tag 'picture2.png' %>
+                <% end %><br/>
+                <font color="#1874CD"><center>
+                    <%= review.try(:user).try(:login) %></center>
+                </font>
+            </td>
+            <td>
+                <% for i in 1..review.score.to_i %>
+                <%= image_tag 'star_1.png' %>
+                <% end %>
+				<font color="red" size="2"><%= review.score.to_i %>分</font>
+				
+            </td>
+            <td align="right">
+              <font color="#999999" size="2">  <%= review.updated_at.strftime("%Y/%m/%d %H:%M") %></font>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <font color=":#333333"><%= review.content %></font>
+            </td>
+        </tr>
+        <tr>
+            <% @opinion_agrees = Opinion.count :conditions =>["review_id = ? and opinion = ?",review.id,true] %>
+            <% @opinion_againsts = Opinion.count :conditions =>["review_id = ? and opinion = ?",review.id,false] %>
+			<td width="130" align="center"><font color="#999999" size="2">此评论对我</font></td>
+            <td id="opinion">
+                <%= link_to "有用(#{@opinion_agrees})",:controller =>'/opinion', :action => :agree, :id=>@product.id, :review_id => review.id %>
+            
+                <%= link_to "没用(#{@opinion_againsts})",:controller =>'/opinion', :action => :against, :id=>@product.id, :review_id => review.id %>
+        </td>
+		</tr>    
+    </table>
+	<% end %>
+	<% end %>
+    <% else %>
+    <table bgcolor="#FFEFDB">
+        <tr>
+            <td align="center" colspan="6">
+                <font size=2 color="#7A7A7A">
+                    还没有用户评论此商品噢,快来当第一个评论者吧！
+                </font>
+            </td>
+        </tr>
+    </table>
+    <% end %>
+</div>
+<br/>
+<% form_tag "/product/add_review/#{@product.id}" do %>
+<% if logged_in? %>
+<% order = Order.find(:first, :conditions => ["product_id = ? and user_id = ? ", @product.id,current_user.id])%>
+<% review = Review.find(:first, :conditions =>["product_id = ? and user_id = ? ", @product.id,current_user.id])%>
+<% if order.present? && review.blank?%>
+<div id ="show_text">
+<table>
+	<tr align="center">
+		<th>
+			宝贝好不好，您说了算，评价一下吧！
+		</th>
+	<tr>
+		<td>
+			<%= radio_button_tag 'score', 'one'%><%= label_tag 'score_one', '一分'%>&nbsp;
+			<%= radio_button_tag 'score', 'two'%><%= label_tag 'score_two', '两分'%>&nbsp;
+			<%= radio_button_tag 'score', 'three'%><%= label_tag 'score_three', '三分'%>&nbsp;
+			<%= radio_button_tag 'score', 'four'%><%= label_tag 'score_four', '四分'%>&nbsp;
+			<%= radio_button_tag 'score', 'five', true%><%= label_tag 'score_five', '五分'%>	&nbsp;	
+		</td>
+	</tr>
+</table>
+<%= text_area :review, :content ,:cols => 80, :rows => 3 %>
+<%= submit_to_remote 'submit', '提交', :url => { :action => 'add_review', :id => @product.id } %>
+</div>
+<% end %>
+<% end %>
+<% end %>
+<div class="return">
+	<a href="#">ddd
+</a>
+</div>
+<%= will_paginate @reviews %>
+共<%= @reviews.total_pages %>页&nbsp
+<%= @reviews.total_entries %>条记录&nbsp
+

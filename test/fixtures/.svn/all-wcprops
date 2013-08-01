@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/repos/shopping-test-4/!svn/ver/114/test/fixtures
+END
+genres.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/shopping-test-4/!svn/ver/1/test/fixtures/genres.yml
+END
+products.yml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/repos/shopping-test-4/!svn/ver/1/test/fixtures/products.yml
+END
+reviews.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/shopping-test-4/!svn/ver/4/test/fixtures/reviews.yml
+END
+pro_collects.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/shopping-test-4/!svn/ver/4/test/fixtures/pro_collects.yml
+END
+admins.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/shopping-test-4/!svn/ver/1/test/fixtures/admins.yml
+END
+attachments.yml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/shopping-test-4/!svn/ver/1/test/fixtures/attachments.yml
+END
+user_addresses.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/shopping-test-4/!svn/ver/4/test/fixtures/user_addresses.yml
+END
+sub_genres.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/shopping-test-4/!svn/ver/1/test/fixtures/sub_genres.yml
+END
+opinions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/shopping-test-4/!svn/ver/114/test/fixtures/opinions.yml
+END
+orders.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/shopping-test-4/!svn/ver/4/test/fixtures/orders.yml
+END

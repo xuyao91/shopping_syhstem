@@ -1,0 +1,19 @@
+<table align="center">
+    <tr>
+        <td>
+            <%= select_tag 'product[genre_id]', options_for_select([['-请选择-','']] + @genre_arrs,(params[:product][:genre_id].to_i rescue '')),
+            :onchange => remote_function(:url => {:action => :change_sub_genre},
+            :update => "sub_genre_1",
+            :with => "'genre_id=' + value" ) %>
+        </td>
+        <td>
+            <div id="sub_genre_1">
+                <%= select_tag 'product[sub_genre_id]', options_for_select([['-请选择-','']] + @sub_genre_arrs,(params[:product][:sub_genre_id].to_i rescue '')) %>
+            </div>
+        </td>
+        <td>
+            <%= text_field_tag 'product[name]',(params[:product][:name] rescue '') %>
+            <%= submit_tag '搜索' %>
+        </td>
+    </tr>
+</table>

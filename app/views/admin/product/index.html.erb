@@ -1,0 +1,98 @@
+<% if params[:product].blank?%>
+<% selected_genre_id = ''%>
+<% selected_sub_genre_id = ''%>
+<% else %>
+<% selected_genre_id = params[:product][:genre_id]%>
+<% selected_sub_genre_id = params[:product][:sub_genre_id]%>
+<%end%>
+<script type="text/javascript">
+   Shadowbox.init();
+</script>
+
+
+<div align="right" id="linkweb"></div>
+<script>setInterval("linkweb.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+</script>
+
+<font size="5" color="blue"><center>商品一览</center></font>
+<% form_tag "/admin/product/search"  do %>
+	<table align="center">
+		<tr>
+			<td>  
+				<%= select_tag "product[genre_id]", options_for_select(Genre.all.collect {|g| [ g.name, g.id ]}.insert(0, ['-请选择-','']), selected_genre_id.to_i), :onchange => remote_function(:url => { :controller => '/admin/product', :action => 'get_relative_scate'}, :with => "'id=' + $('product_genre_id').value") %>
+			</td>
+			<td id='td'>
+				<%= select_tag "product[sub_genre_id]", options_for_select([['-请选择-','']] + SubGenre.all.collect {|g| [ g.sub_name, g.id ]})%>
+			</td>
+			<td><%= text_field_tag("product[name]", (params[:product][:name] if params[:product].present?) ) %></td>
+			<td ><%= image_submit_tag ("search.png", :height=> 25)%></td>
+		</tr>		
+	</table>
+<% end %>
+
+
+<% form_tag "/admin/product/delete_all" do%>
+<table border="1" cellspacing="0" width="85%" align="center">
+	<tr bgcolor="#BBFFFF" align="center">
+		<td id="btn"></td>
+		<td>大分类</td>
+		<td>小分类</td>
+		<td>商品ID</td>
+		<td>商品名</td>
+		<td>图片</td>
+		<td>库存</td>
+		<td>操作</td>
+	</tr>
+<% if @products.present? %>
+	<% @products.each do |product|%>
+	<tr align="center" onmouseout="this.style.backgroundColor=''"; onmouseover="this.style.backgroundColor='#FFcccc'">	
+		<td><%= check_box_tag "product_id[]",product.id%></td>
+		<td><%= product.genre.name rescue '暂无'%></td>
+		<td><%= product.sub_genre.sub_name rescue '暂无'%>
+		<td><%= product.try(:id) %></td>
+		<td><%= product.try(:name)%></td>		
+			<% product_attachment = ProductAttachment.find(:first, :conditions => ["owner_id = ?", product.id]) %>
+			<% if product_attachment.present?%>
+				<% image_name = product_attachment.file_name%>
+				<% @image = Attachment.get_image("small_images", image_name)%>
+		<td align="center">
+			<a href="<%= Attachment.get_image('temp_image', image_name) %>" title="<%=product.name%>" rel="shadowbox">  
+				<%= image_tag (@image) %>
+			</a>			
+		</td>
+			<%else%>
+		<td></td>
+			<%end%>
+		<td><%= product.quantity%></td>
+		<td>
+			<%= link_to "详细", :action => "detail", :id => product.id %>&nbsp;&nbsp;
+			<%= link_to "编辑", :action => "edit", :id => product.id %>&nbsp;&nbsp;
+			<%= link_to "删除", {:action => "delete", :id => product.id}, :confirm => "Are you sure ?"%>
+		</td>
+	</tr>
+	<% end %>
+<% else %>
+	<tr>
+		<td colspan="8" align="center"> no product !</td>
+	</tr>
+<% end %>
+</table>
+<table width="85%">
+	<tr>
+		<td width="50%" align="center"><%= submit_tag "批量删除", :confirm => "Are you sure ?"%></td>
+		<td width="50%">
+			<table align="right" width="100%">
+				<tr><td><%= will_paginate @products, :params => params%></td></tr>
+				<tr><td align="center">共<%= @products.total_entries%>条记录</td></tr>	
+			</table>
+		</td>
+	</tr>
+</table>
+<%end%>
+
+<table width="85%" align="center">
+	<tr>
+		<td align="right"><%= button_to "添加", :action => "add"%></td>
+		<td align="left"><%= button_to "返回", :controller => "/admin/product", :action => "index"%></td>
+	</tr>
+</table>

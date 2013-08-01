@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 50
+*.loadpath
+*.project
+log
+shopping后台设计
+tmp
+
+END

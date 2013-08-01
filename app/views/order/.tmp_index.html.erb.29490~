@@ -1,0 +1,116 @@
+<table width="95%" id="order_bg" border="0">
+    <tr>
+        <td>
+            <b>我的订单</b>
+        </td>
+    </tr>
+</table>
+<br/>
+	<% form_tag "/order/delete_some" do %>
+<table cellspacing="0" border="1" width="90%" id="order">
+    <tr align="center">
+    	<th>
+          <%= check_box_tag "name" %>
+    	</th>
+        <th>
+            商品ID
+        </th>
+        <th>
+            商品名
+        </th>
+        <th>
+            价格
+        </th>
+        <th>
+            数量
+        </th>
+		<th>
+	图片
+		</th>
+        <th>
+        购买时间
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+    <% if @orders.present? %>
+    <% @orders.each_with_index do |order,i| %>
+	<% product_image = ProductAttachment.find_by_owner_id(order.product_id)%>
+	<% if i % 2 == 0%>
+    <tr align="center">
+    	<td>
+    		<%= check_box_tag "id[]",order.id %>
+		</td>
+        <td>
+            <%= order.product_id %>
+        </td>
+        <td>
+            <%= link_to "#{order.try(:product).try(:name)}",:controller=>"/product",:action=>'detail',:id=>order.product_id %>
+        </td>
+        <td>
+            <font color="red"><b><%= number_to_currency(order.total_price,:unit=>"&yen") %></b></font>
+        </td>
+
+        <td>
+            <%= order.count %>
+        </td>
+		<td>
+			<%= image_tag(Attachment.get_image("temp_image",product_image.file_name),:size=>"65x50")%>
+		</td>
+        <td>
+            <%= order.updated_at.strftime("%Y/%m/%d %H:%M") %>
+        </td>
+        <td>
+            <%= button_to "删除",{:controller =>'/order', :action=> 'delete',:id=>order.id},:confirm => "Are you sure?" %>
+        </td>
+    </tr>
+	<%else%>
+	<tr align="center" class="tr">
+		<td>
+    		<%= check_box_tag "product_id[]",order.id %>
+		</td>
+        <td>
+            <%= order.product_id %>
+        </td>
+        <td>
+            <%= link_to "#{order.product.name rescue '--'}",:controller=>"/product",:action=>'detail',:id=>order.product_id %>
+        </td>
+        <td>
+            <font color="red"><b><%= number_to_currency(order.total_price,:unit=>"&yen") %></b></font>
+        </td>
+
+        <td>
+            <%= order.count %>
+        </td>
+		<td>
+			<%= image_tag(Attachment.get_image("temp_image",product_image.file_name),:size=>"65x50")%>
+		</td>
+        <td>
+            <%= order.updated_at.strftime("%Y/%m/%d %H:%M") %>
+        </td>
+        <td>
+            <%= button_to "删除",{:controller =>'/order', :action=> 'delete',:id=>order.id},:confirm => "Are you sure?" %>
+        </td>
+    </tr>
+
+	<%end%>
+    <% end %>
+    <% else %>
+    <td colspan="7" align="center">
+        <font color="#c0c0c0">
+            您还没有消费过哦！
+        </font>
+    </td>
+    <% end %>
+		<tr>
+		<td colspan="8" align="right">
+			<%= submit_tag "删除选中" ,:confirm=>"are you sure ?"%>
+		</td>
+	</tr>
+	
+</table>
+<% end %>
+<%= will_paginate @orders %>
+共<%= @orders.total_pages %>页&nbsp
+<%= @orders.total_entries %>条记录&nbsp

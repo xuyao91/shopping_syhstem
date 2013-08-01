@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/repos/shopping-test-4/!svn/ver/95/app/helpers
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/shopping-test-4/!svn/ver/54/app/helpers/application_helper.rb
+END
+user_address_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/shopping-test-4/!svn/ver/11/app/helpers/user_address_helper.rb
+END
+pro_collect_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/shopping-test-4/!svn/ver/11/app/helpers/pro_collect_helper.rb
+END
+opinion_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/shopping-test-4/!svn/ver/95/app/helpers/opinion_helper.rb
+END
+order_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/shopping-test-4/!svn/ver/11/app/helpers/order_helper.rb
+END

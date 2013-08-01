@@ -1,0 +1,27 @@
+<font size="5" color="blue">设置</font>
+<br/><br/>
+
+<center><font size="4" color="blue">个人信息</font></center>
+<br/>
+<table border="1" cellspacing="0" width="80%" align="center">
+	<tr align="center" bgcolor="#BBFFFF">
+		<td>ID</td>
+		<td>用户名</td>		
+		<td>Email</td>		
+	</tr>
+	<tr align="center">
+		<td><%= @current_admin.id%></td>
+		<td><%= @current_admin.login%></td>		
+		<td><%= @current_admin.email%></td>
+	</tr>
+</table>
+<table width="80%" align="center">
+	<tr>
+		<td align="right"><%= button_to "修改密码", :action => "reset_password", :id => @current_admin.id%></td>
+		<td align="left"><%= button_to "编辑", :action => "personal_edit", :id => @current_admin.id%></td>
+		
+	</tr>
+	<tr>		
+		<td><%= button_to "返回", :controller => "/admin/admin", :action => "set"%></td>
+	</tr>
+</table>

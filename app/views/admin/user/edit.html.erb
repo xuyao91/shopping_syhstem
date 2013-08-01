@@ -1,0 +1,62 @@
+
+<font size="5" color="blue">用户编辑</font>
+<br/>
+<div id='error_message'>
+<%= error_messages_for :user%>
+</div>
+<iframe name="iframe" style="display:none;"></iframe>
+
+<% form_tag "/admin/user/update/#{@user.id}", :multipart=>true, :target => 'iframe' do  %>
+<table align="center" width="100%">
+	<tr>
+		<td width="30%" align="right">
+			<table>
+				<tr><td><%= image_tag @image%></td></tr>
+				<tr><td id='user_image' height="20"><%= link_to_remote '更改头像', :url=> {:action => "change_user_image"}%></td></tr>
+			</table>
+			
+		</td>
+		<td>
+			<table border="1" cellspacing="0" align="center" width="80%" height="100%">
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">用户名：</td>
+					<td><%= text_field :user, :login%></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">密码：</td>
+					<td><%= password_field_tag "new_password", nil, :maxlength => 6, :size => 12%><font size="2" color="red">*输入6位密码</font></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">Email:</td>
+					<td><%= text_field :user, :email%>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">性别：</td>
+					<td>
+						男：<%= radio_button(:user, :gender, "男")%>&nbsp;&nbsp;
+						女：<%= radio_button(:user, :gender, "女")%>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">年龄：</td>
+					<td><%= text_field :user, :age, :maxlength => 2, :size => 12%></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">Tel:</td>
+					<td><%= text_field :user, :tel,:maxlength=> 20%></td>
+				</tr>
+			</table>
+		</td>
+	</tr>	
+</table>
+<!--
+用户头像：<%= file_field (:commodity, :image, :onchange => 'this.form.action="/admin/admin/image_preview";this.form.submit();')%>	
+<br/>	
+<div id='image_preview_1'></div>
+-->
+<%= button_to_function "提交", "this.form.action='#{url_for :action =>'update', :id => @user.id}';this.form.target='_self';this.form.submit()"%>
+
+<%end%>
+</br>
+<%=button_to "返回", :action => "index"%>

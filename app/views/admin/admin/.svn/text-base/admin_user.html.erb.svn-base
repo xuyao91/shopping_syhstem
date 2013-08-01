@@ -1,0 +1,58 @@
+<font size="5" color="blue">设置</font>
+<br/><br/>
+<center>
+<font size="4" color="blue">后台用户信息</font>
+</center>
+<br/>
+<% form_tag "/admin/admin/delete_all_admin_user" do%>
+<table align="center" width="80%" border="1" cellspacing="0" cellpadding="3">
+	<tr align="center" bgcolor="#BBFFFF">
+		<td></td>
+		<td>ID</td>
+		<td>用户名</td>
+		<td>Email</td>
+		<td></td>
+	</tr>
+	<% if @admin_users.present?%>
+	<% @admin_users.each do |admin_user|%>
+	<tr align="center" onmouseout="this.style.backgroundColor=''"; onmouseover="this.style.backgroundColor='#FFcccc'">
+		<td><%= check_box_tag "admin_user_id[]", admin_user.id%></td>
+		<td><%= admin_user.id%></td>
+		<td><%= admin_user.login%></td>
+		<td><%= admin_user.email%></td>
+		<td>
+			<%= link_to "编辑", :action => "admin_user_edit", :id => admin_user.id%>&nbsp;&nbsp;
+			<%= link_to "删除", {:action => "admin_user_delete", :id => admin_user.id}, :confirm => "Are you sure ?"%>
+		</td>
+	</tr>
+	<%end%>
+	<%else%>
+	<tr>
+		<td colspan="4" align="center">no other admin_user !</td>
+	</tr>
+	<%end%>
+</table>
+<table width="85%">
+	<tr>
+		<td width="50%" align="center"><%= submit_tag "批量删除", :confirm => "Are you sure ?"%></td>
+		<td width="50%">
+			<table align="right" width="100%">
+				<tr><td><%= will_paginate @admin_users, :params => params%></td></tr>
+				<tr><td align="center">共<%= @admin_users.total_entries%>条记录</td></tr>	
+			</table>
+		</td>
+	</tr>
+</table>
+<%end%>
+
+<br/>
+
+
+<table align="center">
+	<tr>
+		<td align="right" width="50%"><%= button_to "返回", :action=>"set"%></td>
+		<td align="left" width="50%"><%= button_to "添加管理用户", :action => 'add_admin'%></td>
+	</tr>
+</table>
+
+

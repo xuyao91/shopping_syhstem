@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/shopping-test-4/!svn/ver/147/app/views/admin/admin
+END
+admin_user.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/shopping-test-4/!svn/ver/96/app/views/admin/admin/admin_user.html.erb
+END
+personal_edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/shopping-test-4/!svn/ver/36/app/views/admin/admin/personal_edit.html.erb
+END
+admin_user_edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/shopping-test-4/!svn/ver/78/app/views/admin/admin/admin_user_edit.html.erb
+END
+set.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/shopping-test-4/!svn/ver/46/app/views/admin/admin/set.html.erb
+END
+personal_info.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/shopping-test-4/!svn/ver/65/app/views/admin/admin/personal_info.html.erb
+END
+add_admin.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/shopping-test-4/!svn/ver/66/app/views/admin/admin/add_admin.html.erb
+END
+signup.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/shopping-test-4/!svn/ver/66/app/views/admin/admin/signup.rhtml
+END
+index.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/shopping-test-4/!svn/ver/1/app/views/admin/admin/index.rhtml
+END
+login.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/shopping-test-4/!svn/ver/147/app/views/admin/admin/login.rhtml
+END
+reset_password.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/shopping-test-4/!svn/ver/36/app/views/admin/admin/reset_password.html.erb
+END

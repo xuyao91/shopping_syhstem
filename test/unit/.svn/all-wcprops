@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/repos/shopping-test-4/!svn/ver/114/test/unit
+END
+genre_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/shopping-test-4/!svn/ver/1/test/unit/genre_test.rb
+END
+product_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/repos/shopping-test-4/!svn/ver/1/test/unit/product_test.rb
+END
+review_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/repos/shopping-test-4/!svn/ver/4/test/unit/review_test.rb
+END
+user_address_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/shopping-test-4/!svn/ver/4/test/unit/user_address_test.rb
+END
+pro_collect_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/shopping-test-4/!svn/ver/4/test/unit/pro_collect_test.rb
+END
+admin_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/shopping-test-4/!svn/ver/1/test/unit/admin_test.rb
+END
+attachment_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/shopping-test-4/!svn/ver/1/test/unit/attachment_test.rb
+END
+sub_genre_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/shopping-test-4/!svn/ver/1/test/unit/sub_genre_test.rb
+END
+opinion_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/shopping-test-4/!svn/ver/114/test/unit/opinion_test.rb
+END
+order_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/shopping-test-4/!svn/ver/4/test/unit/order_test.rb
+END

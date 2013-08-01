@@ -1,0 +1,55 @@
+<center><font size="5" color="blue">评论列表</font></center>
+<br/>
+
+<% form_tag "/admin/review/delete_all" do%>
+<table border="1" cellspacing="0" width="100%">
+	<tr bgcolor="#BBFFFF" align="center">
+		<td></td>
+		<td>商品ID</td>
+		<td>商品名</td>
+		<td>评论内容</td>
+		<td>评论者</td>
+		<td>评论时间</td>
+		<td></td>
+	</tr>
+	<% if @reviews.present? %>
+	<% @reviews.each_with_index do |review, index|%>
+	<tr align="center" onmouseout="this.style.backgroundColor=''"; onmouseover="this.style.backgroundColor='#FFcccc'">
+		<td><%= check_box_tag "review_id[]", review.id%></td>
+		<td><%= review.product.id rescue '--'%></td>
+		<td><%= review.product.name rescue '--'%></td>
+		<td>
+			<%= truncate(review.content, 15, "...") %>			
+		</td>
+		<td><%= review.user.login rescue '--'%></td>
+		<td><%= review.created_at.strftime("%Y/%m/%d") rescue '--'%></td>
+		<td>
+			<%= link_to "详细", :action => "detail", :id => review.id%>&nbsp;&nbsp;
+			<%= link_to "删除", {:action => "delete", :id => review.id}, :confirm => "Are you sure?"%>
+		</td>
+	</tr>	
+	<% end %>
+	<% else %>
+	<tr>
+		<td colspan="6" align="center">no review!</td>
+	</tr>
+	<% end %>
+</table>
+<table width="80%" align="center">
+	<tr>
+		<td width="50%" align="center"><%= submit_tag "批量删除", :confirm => "Are you sure ?"%></td>
+		<td width="50%">
+			<table align="right" width="100%">
+				<tr><td><%= will_paginate @reviews, :params => params%></td></tr>
+				<tr><td align="center">共<%= @reviews.total_entries%>条记录</td></tr>	
+			</table>
+		</td>
+	</tr>
+</table>
+
+<%end%>
+<br/>
+<%= button_to "返回", :controller => '/admin/product', :action => "index"%>
+
+
+

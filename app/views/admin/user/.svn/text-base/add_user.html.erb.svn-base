@@ -1,0 +1,21 @@
+<center><font size="5" color="blue">添加用户账号</font></center>
+<br/>
+
+<%= error_messages_for :user%>z
+
+<iframe name="iframe" style="display:none;"></iframe>
+
+<% form_tag "/admin/user/create_user", :multipart => true, :target => 'iframe' do %>
+<%= render :partial => "userinfo"%><br/>
+<div id='user_image'>
+	<%= link_to_remote "添加图片", :url => {:controller => '/admin/user', :action => "add_user_image"}%>
+</div>
+<!--
+用户头像：<%= file_field (:commodity, :image, :onchange => 'this.form.action="/admin/user/image_preview";this.form.submit();')%>
+<div id='image_preview_1'></div>
+-->
+<br/>
+<%= button_to_function "提交", "this.form.action='#{url_for :action =>'create_user'}';this.form.target='_self';this.form.submit()"%>
+
+<%end%>
+<%= button_to "返回", :action => "userinfo_list"%>

@@ -1,0 +1,9 @@
+<% form_tag "/user_address/edit/#{@user_address.id}" do %>
+<table border="1" cellspacing="0">
+<%= render :partial=>"user_address" %>
+<%= hidden_field(:user_address, :id) %>
+</table>
+<br/>
+<%= button_to "确定",:aciton=>'update'%>
+<% end %>
+

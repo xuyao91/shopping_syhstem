@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/repos/shopping-test-4/!svn/ver/133/config
+END
+routes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/repos/shopping-test-4/!svn/ver/117/config/routes.rb
+END
+database.yml.sample
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/repos/shopping-test-4/!svn/ver/106/config/database.yml.sample
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/repos/shopping-test-4/!svn/ver/1/config/boot.rb
+END
+environment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/shopping-test-4/!svn/ver/133/config/environment.rb
+END

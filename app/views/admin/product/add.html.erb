@@ -1,0 +1,36 @@
+<center><font size="5" color="blue">商品添加</font></center>
+<br/>
+<div id='div_errors'><%= error_messages_for :product%></div>
+
+<iframe name="iframe" style="display:none;"></iframe>
+<!--这个页面是隐藏的，相当于form提交的跳板-->
+
+<% form_tag "/admin/product/create", :multipart => true, :target => 'iframe' do %>
+	<%= render :partial => "product_form"%>
+
+<!--add some pictures-->
+<div id="link">
+	<%= link_to_remote "添加图片", :url => { :controller => "/admin/product", :action => "add_preview", :file_id => 1 } %>
+ </div> 
+<!--preview picture-->
+  <div id="upload_image"></div>
+
+ 
+
+<br/>
+<%= button_to_function "提交", "this.form.action='#{url_for :action =>'create'}';this.form.target='_self';this.form.submit()"%>
+<% end %>
+<center>
+	<%= button_to "返回", :action => "index"%>
+</center>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+<div id = "remove_modify">
+<% form_tag "/product/modify/#{@product_id}" do %>
+<%= text_field_tag 'modify_count',@count,:size=>2,:maxlength=>2 %>
+<%= submit_tag "确定"%>
+<% end %>
+</div>

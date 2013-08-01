@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/shopping-test-4/!svn/ver/121/app/views/admin/genre
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/shopping-test-4/!svn/ver/121/app/views/admin/genre/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/shopping-test-4/!svn/ver/121/app/views/admin/genre/index.html.erb
+END
+add_genre.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/shopping-test-4/!svn/ver/64/app/views/admin/genre/add_genre.html.erb
+END
+genre_product_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/shopping-test-4/!svn/ver/54/app/views/admin/genre/genre_product_list.html.erb
+END
+sub_genre_edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/shopping-test-4/!svn/ver/66/app/views/admin/genre/sub_genre_edit.html.erb
+END
+add_sub_genre.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/shopping-test-4/!svn/ver/121/app/views/admin/genre/add_sub_genre.html.erb
+END
+sub_genre_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/shopping-test-4/!svn/ver/96/app/views/admin/genre/sub_genre_list.html.erb
+END

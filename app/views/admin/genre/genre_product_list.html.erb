@@ -1,0 +1,48 @@
+<script type="text/javascript">
+	Shadowbox.init();
+</script>
+
+<font size="5" color="blue"><center><%#= @products.genre.name%>商品一览</center></font><br/>
+
+<table border="1" cellspacing="0" width="80%" align="center">
+	<tr bgcolor="#BBFFFF" align="center">
+		<td>ID</td>
+		<td>商品名</td>
+		<td>图像</td>
+		<td>子类别</td>	
+		<td></td>	
+	</tr>
+	<% if @products.present? %>
+	<% @products.each do |product|%>
+	<% product_attachment = Attachment.find_by_owner_id(product.id)%>
+	<% if product_attachment.present?%>
+      <% image_name = product_attachment.file_name%>
+	  <% @image = Attachment.get_image("small_images", image_name)%>
+	<%else%>
+	<%end%>
+	<tr align="center">
+		<td><%= product.id%></td>
+		<td ><%= product.name%></td>
+		<td><%#= image_tag @image%>
+			<a href="<%= Attachment.get_image("temp_image", image_name)%>" rel="shadowbox">
+				<%= image_tag (Attachment.get_image("small_images", image_name))%>
+			</a>
+		</td>
+		<td><%= product.sub_genre.sub_name%></td>
+		<td><%=link_to "详细", :controller => "/admin/product", :action => "detail", :id => product.id%></td>
+	</tr>
+	<%end%>
+	<%else%>
+	<tr>
+		<td colspan="5" align="center">no product!</td>
+	</tr>
+	<% end %>
+</table>
+<table align="right">
+	<tr><td><%= will_paginate @products%></td></tr>
+	<tr><td align="center">共<%= @products.total_entries%>条记录</td></tr>	
+</table>
+<br/>
+<center>
+	<%= button_to "返回", :action => "index"%>
+</center>

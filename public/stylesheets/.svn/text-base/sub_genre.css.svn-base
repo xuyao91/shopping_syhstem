@@ -1,0 +1,17 @@
+body {
+	
+}
+#level th{ float:left;
+           margin:20px;
+		   font-size:18px;
+		   font-weight:bold;
+		   background-color:#CC0000;
+		   padding:4px 10px 4px 10px;
+		   border-top:1px solid #000033;
+		   border-right:1px solid #000033;
+		   border-bottom:1px solid #000033;
+		   border-left:1px solid #000033;}
+#level th a{ text-decoration:none;
+             color:#FFFFCC;}
+#level th a:hover{ text-decoration:underline;
+                    color:#009900;}

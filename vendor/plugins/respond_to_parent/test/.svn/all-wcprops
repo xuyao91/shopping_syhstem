@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/respond_to_parent/test
+END
+responds_to_parent_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/respond_to_parent/test/responds_to_parent_test.rb
+END
+assert_select_parent_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/respond_to_parent/test/assert_select_parent_test.rb
+END

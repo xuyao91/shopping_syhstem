@@ -1,0 +1,4 @@
+<%= image_tag(Attachment.get_image("temp_image", @image_name), :height => 120) %>
+<!-- 
+ :height => (@image_name.columns > 120 ? 120 : @image_name.columns)
+-->

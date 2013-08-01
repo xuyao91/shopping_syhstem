@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/repos/shopping-test-4/!svn/ver/1/script/performance
+END
+benchmarker
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/shopping-test-4/!svn/ver/1/script/performance/benchmarker
+END
+profiler
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/shopping-test-4/!svn/ver/1/script/performance/profiler
+END

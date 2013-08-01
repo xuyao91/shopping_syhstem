@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/shopping-test-4/!svn/ver/124/app/views/admin/user
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/shopping-test-4/!svn/ver/78/app/views/admin/user/edit.html.erb
+END
+add_user.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/shopping-test-4/!svn/ver/123/app/views/admin/user/add_user.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/shopping-test-4/!svn/ver/96/app/views/admin/user/index.html.erb
+END
+add.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/shopping-test-4/!svn/ver/76/app/views/admin/user/add.html.erb
+END
+_userinfo.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/shopping-test-4/!svn/ver/75/app/views/admin/user/_userinfo.html.erb
+END
+_user_image.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/shopping-test-4/!svn/ver/55/app/views/admin/user/_user_image.html.erb
+END
+_image_preview.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/shopping-test-4/!svn/ver/55/app/views/admin/user/_image_preview.html.erb
+END
+detail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/shopping-test-4/!svn/ver/76/app/views/admin/user/detail.html.erb
+END

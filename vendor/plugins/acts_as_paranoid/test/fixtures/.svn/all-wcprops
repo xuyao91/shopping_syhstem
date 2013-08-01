@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_paranoid/test/fixtures
+END
+taggings.yml
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_paranoid/test/fixtures/taggings.yml
+END
+categories.yml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_paranoid/test/fixtures/categories.yml
+END
+widgets.yml
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_paranoid/test/fixtures/widgets.yml
+END
+categories_widgets.yml
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_paranoid/test/fixtures/categories_widgets.yml
+END
+tags.yml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_paranoid/test/fixtures/tags.yml
+END

@@ -1,0 +1,164 @@
+	<html>
+    <head>
+        <Link rel="Shortcut  Icon" href="/images/logo.ico">
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <title>走秀购物网站</title>
+        <%= javascript_include_tag :defaults %>
+        <%= javascript_include_tag 'shadowbox/shadowbox' %>
+		<%= javascript_include_tag 'order/index' %>
+        <%= stylesheet_link_tag 'shadowbox.css' %>
+        <%= stylesheet_link_tag 'order.css' %>
+        <%= stylesheet_link_tag 'collect.css' %>
+        <%= stylesheet_link_tag 'cart.css' %>
+        <%= stylesheet_link_tag 'detail.css' %>
+        <%= stylesheet_link_tag 'sub_genre.css' %>
+		<%= stylesheet_link_tag 'product_index_bg.css'%>
+		<%= stylesheet_link_tag 'select.css' %>
+        <script type="text/javascript">
+            Shadowbox.init({
+                continuous: true,
+                counterType: "skip",
+            });
+        </script>
+        <style type=text/css>
+            body {
+                
+            }
+            
+            .top {
+                color: #FF9955;
+                background-color: #DDDDDD
+            }
+            
+            .login a {
+                color: #0033FF
+            }
+            
+            .top a {
+                font-size: 13px;
+                color: #666666;
+            }
+            
+            .top a:link, a:visited {
+                text-decoration: none;
+            }
+            
+            .top a:hover {
+                text-decoration: underline;
+                color: red;
+            }
+            
+            #genre { 
+                 
+				padding:5px 8px 5px 12px;
+				
+            }
+			#genre a{ color:#FFFFCC; font-weight:bolder; 
+			  padding:10px 24px 8px 15px;
+			  border-left:9px solid #711515;     /*设置左边的为12px*/
+		      border-right:1px solid #711515;
+			  border-bottom:1px solid #711515;
+			  background-color:#991144
+			}  
+			#genre a:active,a:link{ text-decoration:none;}          
+            #genre a:hover{ text-decoration:underline; color:#FF9900;background-color:#990020;}
+			#sub_genre a{ color:#CCCCCC; font-weight:bolder; 
+			  background-color:;
+			  padding:2px 14px 2px 6px;
+			  border-left:7px solid #711515;     /*设置左边的为12px*/
+		      border-right:1px solid #711515;
+			  border-bottom:1px solid #ed9f9f;
+			  background-color:#991144
+			}  
+			#sub_genre a:active,a:link{ text-decoration:none;}          
+            #sub_genre a:hover{ text-decoration:underline; color:#FF9900;background-color:#990020;}
+	      </style>
+    </head>
+    <body>
+    <table width="85%" cellspacing="0" class="title" align="center" border="0">
+        <tr cellspacing="0" width="100%" class="top">
+            <td width="14%" class="login">
+                &nbsp;<b><%= logged_in? ? current_user.try(:login) : '' %></b>
+                <% if logged_in? %>
+                <%= link_to "退出",:controller =>'/user',:action=>'logout' %>
+                <% else %>
+                &nbsp;<%= link_to '登录|' ,:controller =>'/user', :action => 'login' %>
+                <%= link_to '注册|' ,:controller =>'/user', :action => 'signup' %>
+                <% end %>
+            </td>
+            <td align="right">
+                <%= link_to '首页|' ,:controller => "/product", :action => "index" %>
+                <% if logged_in? %>
+                <%= link_to '我的信息|' ,:controller =>'/user', :action => 'index', :id=>current_user.id %>
+                <%end %>
+                <%= link_to '购物车|' ,:controller =>'/product', :action => 'cart' %>
+                <%= link_to '收藏夹|' ,:controller =>'/pro_collect', :action => 'index' %>
+                <%= link_to '订单' ,:controller =>'/order', :action => 'index' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <%= image_tag("first_logo.png") %><%= image_tag("ad.png") %>
+                <%= image_tag("ad_1.png") %>
+            </td>
+        </tr>
+        <tr width="100%" height="100%">
+            <td valign="top">
+                <table border="0" width="100%" height="400">
+                    <% @genre = Genre.find(:all) %>
+                    <% @genre.each do |genre| %>
+                    <tr>
+                        <td align="left">
+                            <p id="genre">
+                                <%= link_to_function "#{genre.name}","Element.toggle('div_#{genre.id}')" %>&nbsp;&nbsp;&nbsp;
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="div_<%= genre.id%>" style="display:none">
+                                <% @sub_genres = SubGenre.find(:all,:conditions=>["genre_id = ?",genre.id]) %>
+                                <table border="0" align="center">
+                                    <% @sub_genres.each do |sub_genre| %>
+                                    <tr>
+                                        <td>
+                                            <p align="center" id="sub_genre">
+                                                <%= link_to "#{sub_genre.sub_name}",:controller => 'product',:action=>'sub_genre',:id=>sub_genre.id, :locals => { :genre_id => "#{genre.id}"} %>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <% end %>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <% end %>
+                </table>
+            </td>
+            <td align="center" width="75%" valign="top">
+                <div id="show_message">
+                    <%= flash[:notice] %>
+                </div>
+                <br/>
+                <%= yield %>
+            </td>
+        </tr>
+    </table>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" height="100">
+    </td>
+</tr>
+</table>
+<table align="center" valign="bottom">
+    <tr>
+        <td>
+            <font size=2>
+                &copy;版权所有2011-2012  江西智科软件有限公司
+            </font>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

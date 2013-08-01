@@ -1,0 +1,38 @@
+<font size="5" color="blue"><center>用户<%= %>的详细订单</center></font><br/>
+<table border="1" cellspacing="0" width="80%" align="center">
+	<tr bgcolor="#BBFFFF" align="center">
+		<td >商品ID</td>
+		<td>商品名</td>
+		<td>图像</td>
+		<td>数量</td>
+		<td>单价</td>
+		<td>总价</td>
+	</tr>
+	<tr align="center">		
+		<td><%= @order.product_id %></td>
+		<td><%= @order.product.try(:name) %></td>
+		<td><%= image_tag @image%></td>
+		<td><%= @order.count%></td>
+		<td><%= @order.product.try(:price) %></td>
+		<td><%= @order.total_price %></td>
+	</tr>
+</table>
+<br/>
+
+ 	<table border="0" align="center">
+		<tr>
+			<% if @order.flag == false%>
+			 	<% form_tag "/admin/order/deliver/#{@order.id}" do %>
+					<td width="50%" align="right"><%= button_to_function '发货', :onclick => "this.disabled='true';this.form.submit();" %></td>
+				<% end%>
+			<%end%>
+			<td widht="50%" align="left"><%= button_to "返回", :action => "index"%></td>
+		</tr>
+    </table>
+ 	
+ 
+<br/>    
+
+ 
+
+

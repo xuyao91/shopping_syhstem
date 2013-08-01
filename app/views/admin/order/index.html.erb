@@ -1,0 +1,67 @@
+
+<table cellspacing="0" width="80%" align="center">
+	<tr>
+		<td align="center" width="50%"><font size="5" color="blue"><%= link_to "订单列表", :action=> "index"%></font></td>
+		<td align="center" width="50%"><font size="5" color="blue"><%= link_to_remote "历史订单", :url=>{:action => "history_order"} %></font></td>
+	</tr>
+</table>
+<br/>
+<div id='history_order1'>
+<%form_tag "/admin/order/delete_all" do%>
+	<table border="1" cellspacing="0" width="80%" align="center">
+		<tr bgcolor="#BBFFFF" align="center">
+			<td></td>
+			<td>订单ID</td>
+			<td>用户名</td>
+			<td>时间</td>
+			<td>是否已处理</td>
+			<td></td>
+		</tr>
+		<% if @orders.present?%>
+			<% @orders.each do |order|%>
+			<tr align="center" onmouseout="this.style.backgroundColor=''"; onmouseover="this.style.backgroundColor='#FFcccc'">
+				<td><%= check_box_tag "order_id[]", order.id%></td>
+				<td><%= order.try(:id)%></td>
+				<td><%= order.user.try(:login)%></td>
+				<td><%= order.created_at.strftime("%Y/%m/%d %H:%M") rescue '--'%></td>
+				<%if order.flag == false%>
+				 <td>待处理</td>
+				<%else %>
+				<td>已发货</td>
+				<%end%>
+				<td>
+					<%= link_to "详细", :action => "detail", :id => order.id%>&nbsp;&nbsp;&nbsp;&nbsp;
+					<%= link_to "删除", {:action => "delete", :id => order.id}, :confirm => "Are you sure?"%>
+				</td>
+			</tr>
+			<% end %>
+		<% else %>
+			<tr>
+				<td colspan="4" align="center">no order!</td>
+			</tr>
+		<% end %>
+	</table>
+	<table align="right" width="80%">
+		<tr>
+			<td width="50%">
+				<%= submit_tag "批量删除", :confirm => "Are you sure ?"%>
+			</td>
+			<td align="right" width="50%">
+				<table>
+					<tr><td align="center">
+						<%= will_paginate @orders, :params => params%>
+						</td></tr>
+					<tr><td align="center">共<%= @orders.total_entries%>条记录</td></tr>
+				</table>
+				
+			</td>
+		</tr>	
+	</table>
+<%end%>
+</div>
+
+<br/><br/>
+<%= button_to "返回", :controller => '/admin/product', :action =>"index"%>
+<p><hr witdh="90%" color="black"></p>
+
+

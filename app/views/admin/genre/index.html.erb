@@ -1,0 +1,66 @@
+<font size="5" color="blue"><center>商品分类</center></font>
+<table width="100%">
+	<tr>
+		<td width="80%" align="right"><%= button_to "添加大分类", :action => "add_genre"%></td>
+		<% if @genres.present?%>
+		<td width="20%"><%= button_to "添加小分类", :action => "add_sub_genre"%></td>
+		<% end %>
+	</tr>
+</table><br/>
+<% form_tag "/admin/genre/delete_all_genre" do%>
+<table border="1" cellspacing="0" width="90%" align="center">
+	<tr bgcolor="#BBFFFF" align="center">
+		<td></td>
+		<td>大分类ID</td>
+		<td>类名</td>
+		<td><%= link_to "小分类", :action => "sub_genre_list"%></td>
+		<td>商品</td>
+		<td></td>
+	</tr>
+	<% if @genres.present?%>
+	<% @genres.each do |genre|%>
+	<tr align="center" onmouseout="this.style.backgroundColor=''"; onmouseover="this.style.backgroundColor='#FFcccc'">
+		<td><%= check_box_tag "genre_id[]", genre.id%></td>
+		<td><%= genre.id%></td>
+		<td><%= genre.name%></td>
+		<td>
+			<% @sub_genres = SubGenre.all(:conditions => ["genre_id = ?", genre.id])%>
+			<% if @sub_genres.present?%>
+			<% @sub_genres.each do |sub_genre|%>
+			<%= sub_genre.sub_name%>&nbsp;&nbsp;
+			<% end%>
+			<% else%>
+			--
+			<%end%>
+		</td>
+		<td><%= link_to "商品....", :action => "genre_product_list", :id =>genre.id%></td>
+		<td>
+			<%= link_to "编辑", :action => "edit", :id => genre.id%>&nbsp;&nbsp;
+			<%= link_to "删除", {:action => "delete", :id => genre.id}, :confirm => "Are you sure?"%>
+		</td>
+	</tr>
+	<% end %>
+	<% else %>
+	<tr>
+		<td colspan="4" align="center">商品还未分类</td>
+	</tr>
+	<% end %>
+</table>
+<table width="85%">
+	<tr>
+		<td width="50%" align="center"><%= submit_tag "批量删除", :confirm => "Are you sure ?"%></td>
+		<td width="50%">
+			<table align="right" width="100%">
+				<tr><td><%= will_paginate @genres, :params => params%></td></tr>
+				<tr><td align="center">共<%= @genres.total_entries%>条记录</td></tr>	
+			</table>
+		</td>
+	</tr>
+</table>
+<%end%>
+<br/><br/>
+<center>
+<%= button_to "返回", :controller => '/admin/product', :action => "index"%>
+</center>
+
+

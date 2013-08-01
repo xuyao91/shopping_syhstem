@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/repos/shopping-test-4/!svn/ver/1/app/helpers/admin
+END
+genre_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/shopping-test-4/!svn/ver/1/app/helpers/admin/genre_helper.rb
+END
+product_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/shopping-test-4/!svn/ver/1/app/helpers/admin/product_helper.rb
+END
+admin_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/shopping-test-4/!svn/ver/1/app/helpers/admin/admin_helper.rb
+END

@@ -1,0 +1,40 @@
+#div1 {
+    width: 200px;
+    height: 40px;
+    background: #FFCC99;
+    border: 1px solid #FF9900;
+    display: none;
+}
+
+#container {
+    width: 100%;
+    height: 450px;
+    border: 1px solid #000000;
+}
+
+#container #top {
+    height: 50px;
+    background-color: #6AA6ED;
+    font-size: 24px;
+    padding: 8px;
+    font-weight: bolder;
+}
+
+#container #content {
+    height: 335px;
+    text-align: center;
+}
+#container #content table th{
+	padding:8px;
+}
+p{
+	font-size:20px;
+	color:#105CB6;
+	font-weight:bolder;
+}
+#container #footer {
+    height: 30px;
+    background-color: #6AA6ED;
+    font-size: 18px;
+    text-align: center;
+}

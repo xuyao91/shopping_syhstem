@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/repos/shopping-test-4/!svn/ver/147/app/views/layouts
+END
+admin.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/shopping-test-4/!svn/ver/140/app/views/layouts/admin.html.erb
+END
+logo.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/shopping-test-4/!svn/ver/148/app/views/layouts/logo.html
+END
+admin_default.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/shopping-test-4/!svn/ver/147/app/views/layouts/admin_default.html.erb
+END

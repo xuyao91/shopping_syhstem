@@ -1,0 +1,171 @@
+<%= link_to '登录',:action =>'login' %>
+<br/>
+<br/>
+<center>
+	<%= error_messages_for :user %>
+</center>
+<table border="1" cellspacing="0" align="center" height=300>
+    <tr>
+        <td>
+            <%= image_tag 'signup_info.png' %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table  width="75%" align="center">
+                <tr height="25">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <% form_for :user do |f| -%>
+                <tr>
+                    <td>
+                        <label for="name">
+                            姓名:
+                        </label>
+                    </td>
+                    <td width="20">
+                    <%= f.text_field :login %> 
+                </td>
+				<td>
+					<font color="red">
+						* 至少3个字符
+					</font>
+				</td>
+                </tr>
+                <tr height="25">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">
+                            密码：
+                        </label>
+                    </td>
+                    <td>
+                        <%= f.password_field :password %>
+                    </td>
+				<td>
+					<font color="red">
+						* 至少4个字符
+					</font>
+				</td>
+                </tr>
+                <tr height="25">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password-confirm">
+                            密码确认:
+                        </label>
+                    </td>
+                    <td>
+                        <%= f.password_field :password_confirmation %>
+                    </td>
+                </tr>
+                <tr height="25">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">
+                            邮件:
+                        </label>
+                    </td>
+                    <td>
+                        <%= f.text_field :email %>
+                    </td>
+                </tr>
+                <tr height="25">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="age">
+                            年龄:
+                        </label>
+                    </td>
+                    <td>
+                        <%= f.text_field :age %>
+                    </td>
+                </tr>
+                <tr height="25">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="tel">
+                            电话号码:
+                        </label>
+                    </td>
+                    <td>
+                        <%= f.text_field :tel %>
+                    </td>
+                </tr>
+                <tr height="25">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="sex">
+                            性别：
+                        </label>
+                    </td>
+                    <td>
+                        <%= radio_button_tag 'gender', '男',true %>男
+						<%= radio_button_tag 'gender', '女'%>女
+                    </td>
+                </tr>
+                <tr height="25">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2">
+                        <%= image_submit_tag 'signup_button.png' %>
+                    </td>
+                </tr>
+                <% end -%>
+                <tr height="25">
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table><br/><br/>
+<table align="center" valign="bottom">
+    <tr>
+        <td>
+            <font size=2>
+                &copy;版权所有2011-2012  江西智科软件有限公司
+            </font>
+        </td>
+    </tr>
+</table>

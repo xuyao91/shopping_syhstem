@@ -1,0 +1,60 @@
+<center><font size="5" color="blue">商品编辑  </font></center>
+<br/>
+<%= error_messages_for :product%>
+<iframe name='iframe' style="display:none;">
+</iframe>
+<% form_tag "/admin/product/update", :multipart => true, :target =>'iframe' do %>
+<table width="100%">
+    <tr><td width="80%"><%= render :partial => "product_form" %></td></tr>
+    <tr>
+        <td>
+            <table width="100%" >
+            	<% if @images.present? %>
+	                <% @images.each_with_index do |image, index| %>
+					<% if index % 3  == 0%>
+						<tr>
+		                    <td>
+		                        <table>
+		                            <tr><td><%= image_tag image %></td></tr>
+		                            <tr><td><%= link_to "删除", {:action => "edit_delete_product_image", :id => @product.id}, :confirm =>"Are you sure?"%></td></tr>
+		                        </table>                        
+		                    </td>					
+					<%else%>
+						<% if (index % 3 == 2 )%>
+							<td>
+		                        <table>
+		                            <tr><td><%= image_tag image %></td></tr>
+		                            <tr><td><%= link_to "删除", {:action => "edit_delete_product_image", :id => @product.id}, :confirm =>"Are you sure?"%></td></tr>
+		                        </table>                        
+		                    </td>
+						</tr>
+					    <%else%>
+							<td>
+		                        <table>
+		                            <tr><td><%= image_tag image %></td></tr>
+		                            <tr><td ><%= link_to "删除", {:action => "edit_delete_product_image", :id => @product.id}, :confirm =>"Are you sure?"%></td></tr>
+		                        </table>                        
+		                    </td>
+						<%end %>
+               	 	<%end %>
+              	 <%end%>
+			<%end%>			 
+            </table>
+        </td>
+    </tr>
+</table>
+
+<!--add some pictures-->
+<div id="link">
+	<%= link_to_remote "添加图片", :url => { :controller => "/admin/product", :action => "add_preview", :file_id => 1 } %>
+ </div> 
+<!--preview picture-->
+  <div id="upload_image"></div>
+
+
+<%= button_to_function '提交', "this.form.action='#{url_for :action => 'update', :id => @product.id}';this.form.target='_self';this.form.submit()" %>
+<% end %>
+<br/>
+<center>
+    <%= button_to "返回", :action => :index %>
+</center>

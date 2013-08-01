@@ -1,0 +1,57 @@
+<%= error_messages_for :admin %>
+<% form_for :admin do  -%>
+<center>
+<table width="60%" cellspacing="0" cellpadding="3">
+	<tr>
+		<td><%= image_tag "background_submit.png"%></td>
+	</tr>
+	<tr height="30"><td></td></tr>
+	<tr>
+		<td><label for="login">Login</label></td>
+	</tr>
+	<tr>
+		<td><%= text_field_tag "admin[login]"%><font size="1" color="red">*字母开头，允许字母数字下划线，允许5-16字节</font></td>
+	</tr>
+	<tr>
+		<td><label for="email">Email</label></td>
+	</tr>
+	<tr>
+		<td><%=text_field_tag "admin[email]" %><font size="1" color="red">*输入有效邮箱</font></td>
+	</tr>
+	<tr>
+		<td><label for="password">Password</label></td>
+	</tr>
+	<tr>
+		<td><%= password_field_tag "admin[password]", nil, :maxlength=>6 %><font size="1" color="red">*输入6位字符</font></td>
+	</tr>	
+	<tr>
+		<td><label for="password_confirmation">Confirm Password</label></td>
+	</tr>
+	<tr>
+		<td><%= password_field_tag "admin[password_confirmation]", nil, :maxlength => 6 %><font size="1" color="red">*输入6位字符</font></td>
+	</tr>
+	<tr height="30"><td></td></tr>
+	<tr>
+		<td><%= image_submit_tag 'agree_and_submit.png' %></td>
+	</tr>
+</table>
+</center>
+<% end -%>
+<br/><br/>
+<!--
+<% form_for :admin do  -%>
+<p><label for="login">Login</label><br/>
+<%= text_field_tag "admin[login]"%><font size="1" color="red">*字母开头，允许字母数字下划线，允许5-16字节</font></p>
+
+<p><label for="email">Email</label><br/>
+<%=text_field_tag "admin[email]" %><font size="1" color="red">*输入有效邮箱</font></p>
+
+<p><label for="password">Password</label><br/>
+<%= password_field_tag "admin[password]", nil, :maxlength=>6 %><font size="1" color="red">*输入6位字符</font></p>
+
+<p><label for="password_confirmation">Confirm Password</label><br/>
+<%= password_field_tag "admin[password_confirmation]", nil, :maxlength => 6 %><font size="1" color="red">*输入6位字符</font></p>
+
+<p><%= submit_tag 'Sign up' %></p>
+<% end -%>
+-->

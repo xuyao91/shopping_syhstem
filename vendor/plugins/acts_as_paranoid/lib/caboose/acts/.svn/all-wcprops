@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_paranoid/lib/caboose/acts
+END
+paranoid.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_paranoid/lib/caboose/acts/paranoid.rb
+END
+has_many_through_without_deleted_association.rb
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_paranoid/lib/caboose/acts/has_many_through_without_deleted_association.rb
+END
+belongs_to_with_deleted_association.rb
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/shopping-test-4/!svn/ver/1/vendor/plugins/acts_as_paranoid/lib/caboose/acts/belongs_to_with_deleted_association.rb
+END

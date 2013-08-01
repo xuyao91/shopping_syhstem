@@ -1,0 +1,93 @@
+
+<table width="85%" >	
+	<tr>
+		<td colspan="2" align="right"><%= button_to "返回", :action => 'index'%></td>
+	</tr>
+	<tr>
+		<td width="75%">
+			<table width="90%" cellspacing="0" border="1" align="center">
+				<tr>
+					<td bgcolor="#BBFFFF" align="center" width="80">商品ID：</td>
+					<td><%= @product.id%><br/></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center" width="80">商品名称：</td>
+					<td><%= @product.name%></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center" width="80">商品类别：</td>
+					<td><%= @product.genre.name%>&nbsp;&nbsp;<%= @product.sub_genre.sub_name%></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center" width="80">商品描述：</td>
+					<td><%#= @product.describe%>
+						<%= text_area (:product, :describe, :size=>"45x7", :disabled =>'disabled')%>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center" width="80">商品价格：</td>
+					<td><%= number_to_currency(@product.price)%></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="25%" align="center" valign="middle">
+			<table>
+				<% if @images.present?%>
+					<% @images.each do |image|%>
+				<tr>
+					<td><%= image_tag image%></td>
+					<td><%#= link_to "删除", {:action => "delete_product_image", :id => @product.id}, :confirm =>"Are you sure?"%></td>
+				</tr>
+				<%end%>
+			<%else%>
+				<tr>
+					<td><%= image_tag @image%></td>
+					<td></td>
+				</tr>
+				<%end%>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="right"><%= button_to "返回", :action => 'index'%></td>
+	</tr>
+</table>
+
+<br/>
+
+<font size="3" color="blue">评论信息</font>
+<table width="85%" cellspacing="0" border="1" >
+	<tr bgcolor="#BBFFFF" align="center">
+		<td>评论者</td>
+		<td>评论内容</td>
+		<td>时间</td>
+		<td></td>
+	</tr>
+	<% if @reviews.present? %>
+	<% @reviews.each do |review|%>
+	<tr align="center">
+		
+		<td>
+	<% user_attachment = UserAttachment.find_by_owner_id(review.user_id)%>
+	<% if user_attachment.present?%>
+		<%= image_tag(Attachment.get_image("small_images",user_attachment.file_name))%>
+	<% end %>
+    	<font color="#1874CD"><%= review.try(:user).try(:login) %></font>	
+		</td>
+		<td><%=review.content%></td>
+		<td><%= review.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+		<td><%= link_to "删除", {:controller => "/admin/review", :action => "review_delete", :id => review.id}, :confirm => "Are you sure ?"%></td>
+	</tr>
+	<% end %>
+	<% else %>
+	<tr>
+		<td colspan="4" align="center">no comments!</td>
+	</tr>
+	<% end %>
+</table>
+<center>
+	<%= button_to "返回", :action => 'index'%>	
+</center>
+<br/>

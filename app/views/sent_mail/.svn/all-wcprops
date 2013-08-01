@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/repos/shopping-test-4/!svn/ver/93/app/views/sent_mail
+END
+sent_edit.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/shopping-test-4/!svn/ver/89/app/views/sent_mail/sent_edit.rhtml
+END
+sent_order.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/shopping-test-4/!svn/ver/92/app/views/sent_mail/sent_order.rhtml
+END
+sent.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/shopping-test-4/!svn/ver/93/app/views/sent_mail/sent.rhtml
+END

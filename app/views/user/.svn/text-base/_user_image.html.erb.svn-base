@@ -1,0 +1,3 @@
+<%= file_field(:user, :image, :onchange => 'this.form.action="/user/image_preview";this.form.submit();', :size=>"18")%>
+<br/>
+<div id='image_preview'></div>

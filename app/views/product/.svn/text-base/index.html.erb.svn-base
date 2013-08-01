@@ -1,0 +1,73 @@
+<table width="90%">
+    <tr>
+        <td>
+            <% form_tag "/product/search" do %>
+            <%= render :partial=> 'select' %>
+            <% end %>
+        </td>
+    </tr>
+</table>
+<table width="86%" id="product_index_bg">
+    <tr>
+        <td>
+        	<b>
+            商品一览
+			</b>
+        </td>
+    </tr>
+</table>
+<br/>
+<table cellspacing="1" width="90%">
+ 	<% if @products.present?%>
+    <% @products.each_with_index do |product, index| %>
+	<% product_attachment = ProductAttachment.find(:first, :conditions => ["owner_id = ?", product.id]) %>
+	<% if index % 5 == 0%>
+		<tr>
+	  		<td align="center" width="20%">
+	          <% if product_attachment.present?%>
+				  <% image_name = product_attachment.file_name%>
+				  <% form_tag  "/product/detail/#{product.id}" do %>
+				  <%= image_submit_tag(Attachment.get_image("middle_images",image_name))%>  
+                 <p> <%= link_to "#{product.name.scan(/./)[0,10]}",:action=>'detail',:id=>product.id %></p>  
+			 <font color="#ff0000" size="3">
+				<b><%= number_to_currency(product.price)%></b>
+            </font>
+				 <% end %>  
+              <% end %>
+           </td>
+	<% else %>
+		   <% if index % 5 ==4%>
+		   <td align="center" width="20%">
+	          <% if product_attachment.present?%>
+				  <% image_name = product_attachment.file_name%>
+				  <% form_tag  "/product/detail/#{product.id}" do %>
+				  <%= image_submit_tag(Attachment.get_image("middle_images",image_name))%>  
+                  <p><%= link_to "#{product.name.scan(/./)[0,10]}",:action=>'detail',:id=>product.id %></p>
+			 <font color="#ff0000" size="3">
+				<b><%= number_to_currency(product.price)%></b>
+            </font> 
+				  <% end %>  
+              <% end %>
+           </td>
+		 </tr>
+		<% else%>
+	      <td align="center" width="20%">
+	          <% if product_attachment.present?%>
+				  <% image_name = product_attachment.file_name%>
+				  <% form_tag  "/product/detail/#{product.id}" do %>	
+				  <%= image_submit_tag(Attachment.get_image("middle_images",image_name))%>  
+                 <p> <%= link_to "#{product.name.scan(/./)[0,10]}",:action=>'detail',:id=>product.id %></p>   
+			 <font color="#ff0000" size="3">
+				<b><%= number_to_currency(product.price)%></b>
+            </font>				
+				 <% end %> 
+              <% end %>
+        </td>
+	  <% end %>
+<% end %>
+<%end %>
+<%end%>
+</table>
+<%= will_paginate @products %> 
+共<%= @products.total_pages %>页&nbsp
+<%= @products.total_entries %>条记录&nbsp

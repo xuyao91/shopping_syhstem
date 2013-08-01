@@ -1,0 +1,42 @@
+<center><font size="5" color="blue">用户信息</font></center><br/>
+<br/>
+<table width="100%" align="center" cellpadding="3">
+	<tr>
+		<td width="30%" align="right" valign="middle">
+			<%= image_tag @image %>
+		</td>	
+		<td>
+			<table border="1" cellspacing="0" align="center" width="80%" height="100%" cellpadding="3">
+				<tr>
+					<td bgcolor="#BBFFFF" width="50" align="center">ID</td>
+					<td><%= @user.id%></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">用户名</td>
+					<td><%= @user.login%></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">Email</td>
+					<td><%= @user.email%></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">性别</td>
+					<td><%= @user.gender%></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">年龄</td>
+					<td><%= @user.age%></td>
+				</tr>
+				<tr>
+					<td bgcolor="#BBFFFF" align="center">Tel</td>
+					<td><%= @user.tel%></td>
+				</tr>		
+			</table>
+		</td>
+	</tr>
+</table>
+
+<br/>
+<center>
+<%= button_to "返回", :action => "index"%>
+</center>

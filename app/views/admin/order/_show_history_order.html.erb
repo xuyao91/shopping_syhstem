@@ -1,0 +1,47 @@
+
+<table border="1" cellspacing="0" width="80%" align="center">
+	<tr bgcolor="#BBFFFF" align="center">
+		<td></td>
+		<td>订单ID</td>
+		<td>用户名</td>
+		<td>时间</td>
+		<td>是否已处理</td>
+		<td></td>
+	</tr>
+	<% if @orders.present?%>
+	<% @orders.each_with_index do |order, index|%>
+	<tr align="center" onmouseout="this.style.backgroundColor=''"; onmouseover="this.style.backgroundColor='#FFcccc'">
+		<td><%#= check_box_tag "history_order_id[]",order.id%><%= index + 1%></td>
+		<td><%= order.try(:id)%></td>
+		<td><%= order.user.try(:login)%></td>
+		<td><%=order.updated_at.strftime("%Y/%m/%d %H:%M") rescue '--'%></td>
+		<td>已发货</td>
+		<td>
+			<%= link_to "详细", :action => "detail", :id => order.id%>&nbsp;&nbsp;&nbsp;&nbsp;
+			<%= link_to "删除", {:action => "delete", :id => order.id}, :confirm => "Are you sure?"%>
+		</td>
+	</tr>
+	<%end%>
+	<%else%>
+	<tr>
+		<td colspan="5" align="center">无历史记录！</td>
+	</tr>
+	<%end%>
+</table>
+
+<table align="right" width="80%">
+	<tr><td width="50%"></td>
+		<td align="right" width="50%">
+			<table>
+				<tr>
+				  <td align="center">
+				    <%= will_paginate_remote(@orders, :params => params, :url => "/admin/order/history_order") %>
+				  </td>
+				</tr>
+				<tr><td align="center">共<%= @orders.total_entries%>条记录</td></tr>
+			</table>
+			
+		</td>
+	</tr>	
+</table>
+

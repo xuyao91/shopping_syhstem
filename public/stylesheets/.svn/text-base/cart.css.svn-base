@@ -1,0 +1,33 @@
+body {
+}
+
+#cart_bg {
+    background-image: url(/images/bg_1.png);
+    background-repeat: repeat-x;
+    height: 30px;
+}
+
+#cart th {
+    background-color: #4bacff;
+    border: 1px solid #0058a3;
+}
+
+#cart {
+    color: #000000;
+    background-color: #eaf5ff;
+    border: 1px solid #0058a3;
+    border-collapse: collapse;
+}
+
+#cart td {
+    border: 1px solid #0058a3;
+}
+
+.modify a:link, a:visited {
+    text-decoration: none;
+}
+
+.modify a:hover {
+    text-decoration: underline;
+    color: red;
+}

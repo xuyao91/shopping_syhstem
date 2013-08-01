@@ -1,0 +1,30 @@
+<table border="1" cellspacing="0" width="80%" align="center">
+	<tr>
+		<td bgcolor="#BBFFFF" align="center" width="80">商品名：</td>
+		<td><%= text_field :product, :name%></td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center" width="80">商品分类：</td>
+		<td>
+		 <%= select_tag "product[genre_id]", options_for_select(Genre.all.collect {|g| [ g.name, g.id ]}.insert(0, ['-请选择-',''])), :onchange => remote_function(:url => { :controller => '/admin/product', :action => 'get_relative_scate'}, :with => "'id=' + $('product_genre_id').value") %>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center" width="80">子分类</td>
+		<td id='td'>
+			<%= select_tag "product[sub_genre_id]", [['']]%>
+		</td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center" width="80">商品描述：</td>
+		<td><%= text_area :product, :describe, :rows => 5, :cols => 55%></td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center" width="80">商品价格：</td>
+		<td><%= text_field :product, :price%></td>
+	</tr>
+	<tr>
+		<td bgcolor="#BBFFFF" align="center" width="80">库存</td>
+		<td><%= text_field :product, :quantity%></td>
+	</tr>
+</table>

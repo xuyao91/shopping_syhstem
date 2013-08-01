@@ -1,0 +1,9 @@
+<font size="5" color="blue">小分类编辑</font>
+<br/>
+<%= error_messages_for :sub_genre%>
+<% form_tag "/admin/genre/sub_genre_update/#{@sub_genre.id}" do %>
+	<%= text_field :sub_genre, :sub_name%>
+	<%= submit_tag "update"%>
+<% end %>
+<br/>
+<%= button_to "返回", :action => "sub_genre_list"%>
